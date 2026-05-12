@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
+/* ── Design Tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary:       #1d9e75;
+  --color-primary-dark:  #0f6e56;
+  --color-primary-light: #e1f5ee;
+  --color-secondary:     #ef9f27;
+  --color-amber-light:   #faeeda;
+  --color-background:    #f7f5f0;
+  --color-surface:       #ffffff;
+  --color-border:        #e5e3dc;
+  --color-ink:           #1a1915;
+  --color-ink-secondary: #6b6a65;
+  --color-ink-tertiary:  #9b9a94;
 }
 
+/* ── Tailwind v4 Theme Extension ── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-dm-mono);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-secondary: var(--color-secondary);
+  --color-amber-light: var(--color-amber-light);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-ink: var(--color-ink);
+  --color-ink-secondary: var(--color-ink-secondary);
+  --color-ink-tertiary: var(--color-ink-tertiary);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base Styles ── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Font Feature Settings for Inter ── */
+.font-sans {
+  font-feature-settings: "cv11";
+}
+
+/* ── Display Font ── */
+.font-display {
+  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+}
+
+/* ── Mono Font ── */
+.font-mono {
+  font-family: var(--font-dm-mono), ui-monospace, "Courier New", monospace;
+}
+
+/* ── Hero Background Layers ── */
+.hero-bg-layers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden; 
+}
+
+/* Soft gradient orbs */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.hero-orb--primary {
+  width: 600px;
+  height: 600px;
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(29, 158, 117, 0.12) 0%, transparent 70%);
+}
+
+.hero-orb--secondary {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(239, 159, 39, 0.08) 0%, transparent 70%);
+}
+
+/* Notebook ruled lines */
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image:
+    /* horizontal ruled lines */
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 31px,
+      rgba(26, 25, 21, 0.06) 31px,
+      rgba(26, 25, 21, 0.06) 32px
+    ),
+    /* left margin line */
+    linear-gradient(
+      to right,
+      transparent 79px,
+      rgba(210, 80, 80, 0.08) 79px,
+      rgba(210, 80, 80, 0.08) 80px,
+      transparent 80px
+    );
+  background-size: 100% 32px, 100% 100%;
+  opacity: 1;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 30%, transparent 100%);
+}
+
+/* Radial vignette to fade edges */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 40%, var(--color-background) 100%);
+}
+
+/* ── SVG Grain Filter (used on hero via pseudo-element) ── */
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  filter: url(#grainFilter);
+  opacity: 0.03;
+  background-color: var(--color-ink);
+}
+
+/* ── Selection color ── */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
 }
