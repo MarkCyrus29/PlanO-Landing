@@ -75,7 +75,6 @@ body {
 .hero-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
   will-change: transform;
 }
 
@@ -145,4 +144,16 @@ body {
 ::selection {
   background-color: var(--color-primary-light);
   color: var(--color-primary-dark);
+}
+
+/* ── Keyframes ── */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }

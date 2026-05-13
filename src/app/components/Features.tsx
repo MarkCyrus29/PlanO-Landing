@@ -59,10 +59,13 @@ export default function Features() {
               Paste a client message or upload a screenshot. PlanO reads it — typos, Taglish, and all — and extracts a structured event brief in seconds. No reformatting. No guessing.
             </p>
           </motion.div>
-          <motion.div variants={fadeRight} className="flex-1 w-full">
-            <div className="bg-surface/5 border border-surface/10 rounded-xl p-5 hover:-translate-y-1 hover:border-primary transition-all duration-200">
-              <p className="font-mono text-xs text-ink-tertiary mb-4">Extracted Brief</p>
-              <div className="space-y-3">
+          <motion.div variants={fadeRight} className="flex-1 w-full relative">  
+            {/* Ambient Background Glow */}
+            <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
+            
+            <div className="relative bg-surface/5 backdrop-blur-md border border-surface/10 rounded-2xl p-6 lg:p-8 shadow-2xl hover:-translate-y-1 hover:border-primary/50 transition-all duration-300">
+              <p className="font-mono text-xs text-primary mb-6 tracking-wider">PlanO Extraction Result</p>
+              <div className="space-y-4">
                 <MockRow label="Event" value="Wedding Reception" highlight={false} />
                 <MockRow label="Date" value="2026-03-15" highlight={false} />
                 <MockRow label="Guests" value="150" highlight />
@@ -89,13 +92,16 @@ export default function Features() {
               PlanO flags every gap in a client inquiry and drafts the follow-up questions in natural Filipino coordinator language — ready to copy-paste directly into Messenger.
             </p>
           </motion.div>
-          <motion.div variants={fadeLeft} className="flex-1 w-full">
-            <div className="bg-amber-light/10 border border-secondary/20 rounded-xl p-5 hover:-translate-y-1 hover:border-primary transition-all duration-200">
-              <div className="space-y-4">
+          <motion.div variants={fadeLeft} className="flex-1 w-full relative">
+            {/* Ambient Background Glow */}
+            <div className="absolute inset-0 bg-secondary/10 blur-[80px] rounded-full pointer-events-none" />
+
+            <div className="relative bg-amber-light/5 backdrop-blur-md border border-secondary/20 rounded-2xl p-6 lg:p-8 shadow-2xl hover:-translate-y-1 hover:border-secondary/50 transition-all duration-300">
+              <div className="space-y-6">
                 <MissingRow field="Venue" question="Hi po! May preferred venue na ba kayo, or would you like suggestions?" />
                 <MissingRow field="Setup" question="Anong klaseng setup po ang gusto niyo — indoor or outdoor?" />
               </div>
-              <button className="mt-5 font-sans text-sm text-primary hover:text-primary-dark transition-colors duration-150">
+              <button className="mt-8 bg-surface/10 hover:bg-surface/20 w-full rounded-lg py-3 font-sans text-sm text-surface transition-colors duration-150 flex items-center justify-center gap-2">
                 Copy questions
               </button>
             </div>
@@ -119,12 +125,16 @@ export default function Features() {
               Your private supplier list. Filtered by distance from the venue. Optimized for your margin, not the lowest price. Your corpus, your quotes — never visible to other coordinators.
             </p>
           </motion.div>
-          <motion.div variants={fadeRight} className="flex-1 w-full">
-            <div className="bg-surface/5 border border-surface/10 rounded-xl p-5 hover:-translate-y-1 hover:border-primary transition-all duration-200">
-              <div className="space-y-3">
-                <SupplierRow category="CATERING" name="Kusina de Manila" price="₱185,000" selected={false} />
-                <SupplierRow category="FLOWERS" name="Bloom PH Studio" price="₱42,000" selected />
-                <SupplierRow category="PHOTO/VIDEO" name="Frame & Light Co." price="₱65,000" selected={false} />
+          <motion.div variants={fadeRight} className="flex-1 w-full relative">
+            {/* Ambient Background Glow */}
+            <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
+
+            <div className="relative bg-surface/5 backdrop-blur-md border border-surface/10 rounded-2xl p-6 lg:p-8 shadow-2xl hover:-translate-y-1 hover:border-primary/50 transition-all duration-300">
+              <p className="font-mono text-xs text-primary mb-5 tracking-wider">Best Matches</p>
+              <div className="w-full space-y-3">
+                <SupplierRow category="CATERING" name="Kusina Manila Co." price="₱85,000" margin="12% MARGIN" selected={false} />
+                <SupplierRow category="FLOWERS" name="Bloom PH Studio" price="₱42,000" margin="25% MARGIN" selected />
+                <SupplierRow category="PHOTO" name="Frame & Light Co." price="₱65,000" margin="10% MARGIN" selected={false} />
               </div>
             </div>
           </motion.div>
@@ -136,9 +146,9 @@ export default function Features() {
 
 function MockRow({ label, value, highlight }: { label: string; value: string; highlight: boolean }) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="font-mono text-xs text-ink-tertiary w-16">{label}</span>
-      <span className={`font-mono text-sm ${highlight ? "text-primary" : "text-surface/80"}`}>{value}</span>
+    <div className="flex items-center gap-3 border-b border-surface/5 pb-2 last:border-0">
+      <span className="font-mono text-xs text-ink-tertiary w-16 uppercase">{label}</span>
+      <span className={`font-mono text-sm ${highlight ? "text-primary bg-primary/10 px-2 py-0.5 rounded" : "text-surface/90"}`}>{value}</span>
     </div>
   );
 }
@@ -155,18 +165,16 @@ function MissingRow({ field, question }: { field: string; question: string }) {
   );
 }
 
-function SupplierRow({ category, name, price, selected }: { category: string; name: string; price: string; selected: boolean }) {
+function SupplierRow({ category, name, price, margin, selected }: { category: string; name: string; price: string; margin?: string; selected: boolean }) {
   return (
-    <div className={`flex items-center justify-between p-3 rounded-lg border ${selected ? "bg-primary-light/10 border-primary" : "border-surface/10"}`}>
+    <div className={`flex items-center justify-between p-3 lg:p-4 rounded-xl border backdrop-blur-md transition-all ${selected ? "bg-primary/20 border-primary shadow-[0_0_15px_rgba(29,158,117,0.3)] scale-105" : "bg-surface/5 border-surface/10"}`}>
       <div className="flex items-center gap-3">
-        <span className="font-mono text-xs text-ink-tertiary">{category}</span>
-        <span className="font-sans text-sm font-semibold text-surface">{name}</span>
+        <span className="font-mono text-[10px] text-surface/40 hidden sm:block">{category}</span>
+        <span className={`font-sans text-sm font-medium ${selected ? "text-white" : "text-surface/80"}`}>{name}</span>
       </div>
       <div className="flex items-center gap-3">
-        <span className="font-sans text-sm text-primary">{price}</span>
-        <button className={`font-sans text-xs px-3 py-1 rounded-lg border ${selected ? "border-primary text-primary" : "border-surface/20 text-surface/60"}`}>
-          Select
-        </button>
+        {margin && <span className="font-mono text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded hidden sm:block">{margin}</span>}
+        <span className={`font-sans text-sm ${selected ? "text-primary font-semibold" : "text-surface/60"}`}>{price}</span>
       </div>
     </div>
   );

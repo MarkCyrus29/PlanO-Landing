@@ -1,8 +1,9 @@
 
 import { Square, ArrowUp } from "lucide-react";
+import Link from "next/link";
 
-const footerLinks = ["Features", "How It Works", "For Coordinators", "About"];
-const sectionIds = ["features", "how-it-works", "for-coordinators", "cta"];
+const footerLinks = ["Features", "How It Works", "For Coordinators"];
+const sectionIds = ["#features", "#how-it-works", "#for-coordinators"];
 
 export default function Footer() {
 
@@ -19,24 +20,24 @@ export default function Footer() {
           {/* Nav links */}
           <div className="flex items-center gap-6">
             {footerLinks.map((link, i) => (
-              <a
+              <Link
                 key={link}
                 href={sectionIds[i]}
                 className="font-sans text-xs text-ink-tertiary hover:text-surface transition-colors duration-150"
               >
-                {link}
-              </a>
+                {link}  
+              </Link>
             ))}
           </div>
 
           {/* Scroll to top */}
-          <a
+          <Link
             href="#"
             className="text-ink-tertiary hover:text-surface transition-colors duration-150"
             aria-label="Scroll to top"
           >
             <ArrowUp size={18} />
-          </a>
+          </Link>
         </div>
 
         {/* Bottom bar */}
