@@ -174,7 +174,7 @@ export default function Hero() {
             transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
           >
             {animationStep === 2 && (
-              <div className="w-full bg-white/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-2xl p-6 lg:p-8 relative overflow-hidden">
+              <div className="w-full bg-white/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-sm p-6 lg:p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-25 ">
                   <Sparkles size={100} className="text-secondary"/>
                 </div>
