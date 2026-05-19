@@ -251,7 +251,7 @@ export default function HowItWorks() {
                   <button
                     onClick={() => setActive(i)}
                     className={`
-                      lg:sticky lg:top-28  relative w-full text-left p-6 lg:p-8 rounded-2xl border transition-all duration-300 cursor-pointer group
+                      lg:sticky lg:top-32  relative w-full text-left p-6 lg:p-8 rounded-2xl border transition-all duration-300 cursor-pointer group
                       ${isActive
                         ? "bg-surface/80 backdrop-blur-md border-primary/30 shadow-xl shadow-primary/5 scale-100"
                         : "bg-surface/30 backdrop-blur-sm border-border hover:border-primary/20 hover:bg-surface/50 scale-95 opacity-50 hover:opacity-100"

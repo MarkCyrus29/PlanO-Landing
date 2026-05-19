@@ -129,7 +129,7 @@ export default function Features() {
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
 
-            <div className="relative bg-surface/5 backdrop-blur-md border border-surface/10 rounded-2xl p-6 lg:p-8 shadow-2xl hover:-translate-y-1 hover:border-primary/50 transition-all duration-300">
+            <div className="relative bg-surface/5 backdrop-blur-md border border-surface/10 rounded-2xl p-6 lg:p-8 shadow-2xl hover:-translate-y-1 hover:border-primary/50 transition-all duration-300">  
               <p className="font-mono text-xs text-primary mb-5 tracking-wider">Best Matches</p>
               <div className="w-full space-y-3">
                 <SupplierRow category="CATERING" name="Kusina Manila Co." price="₱85,000" margin="12% MARGIN" selected={false} />

@@ -74,7 +74,7 @@ export default function Hero() {
           {/* Pre-badge */}
           <motion.div variants={fadeUp} className="mb-6">
             <span className="font-mono text-xs text-primary bg-primary-light rounded-full px-3 py-1 tracking-wide">
-              NOW IN EARLY ACCESS — PHILIPPINES
+              WAITLIST OPEN — PHILIPPINES
             </span>
           </motion.div>
 
@@ -99,7 +99,7 @@ export default function Hero() {
               className="relative overflow-hidden bg-primary text-surface font-sans text-base font-medium px-8 py-3.5 rounded-full hover:bg-primary-dark transition-colors duration-180 flex items-center gap-2 shadow-lg shadow-primary/30 group"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Get Early Access
+                Join the Waitlist
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
               <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -112,11 +112,11 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Social proof */}
+          {/* Social proof 
           <motion.div variants={fadeUp} className="flex items-center gap-2 font-sans text-sm text-ink-tertiary">
             <Users size={14} className="text-ink-tertiary" />
             <span>Joined by coordinators across Luzon, Visayas &amp; Mindanao</span>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Right: Chaos to Clarity Animation */}

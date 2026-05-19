@@ -1,11 +1,11 @@
-import Navigation from "./components/Navigation";
-import Hero from "./components/Hero";
-import PainSection from "./components/PainSection";
-import Features from "./components/Features";
-import HowItWorks from "./components/HowItWorks";
-import ForCoordinators from "./components/ForCoordinators";
-import CTASection from "./components/CTASection";
-import Footer from "./components/Footer";
+import Navigation from "../components/layout/Navigation";
+import Hero from "./sections/Hero";
+import PainSection from "./sections/PainSection";
+import Features from "./sections/Features";
+import HowItWorks from "./sections/HowItWorks";
+import ForCoordinators from "./sections/ForCoordinators";
+import CTASection from "./sections/CTASection";
+import Footer from "../components/layout/Footer";
 
 export default function Home() {
   return (

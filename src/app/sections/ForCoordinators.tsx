@@ -55,16 +55,11 @@ export default function ForCoordinators() {
             <div className="bg-surface rounded-xl border border-border shadow-sm p-6">
               <Quote size={20} className="text-primary mb-4" />
               <p className="font-display text-lg text-ink italic leading-relaxed mb-5">
-                &ldquo;This is exactly what I&rsquo;ve been doing manually for three years.&rdquo;
+                &ldquo;No one has ever made this kind of tool for us before.&rdquo;
               </p>
               <p className="font-sans text-sm text-ink-tertiary mb-3">
-                — Early access tester · Wedding Coordinator · Cebu
+                — Event Coordinator, Batangas
               </p>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map((n) => (
-                  <Star key={n} size={14} className="text-secondary fill-secondary" />
-                ))}
-              </div>
             </div>
           </motion.div>
         </motion.div>
