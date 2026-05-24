@@ -14,10 +14,10 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <Link
               href="#"
-              className="flex items-start gap-2 cursor-pointer relative w-16 h-14"
+              className="flex items-start gap-2 cursor-pointer relative w-24 h-18"
             >
               <Image
-                src="/plano-white.png"
+                src="/plano-w.svg"
                 alt="PlanO"
                 fill
                 sizes="64px"

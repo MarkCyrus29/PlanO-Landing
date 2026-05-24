@@ -15,7 +15,7 @@ export default function Navigation() {
           className="flex items-start gap-2 cursor-pointer relative w-40 h-14"
         >
           <Image 
-          src="/plano-black.png"
+          src="/plano-bk.svg"
           alt="PlanO"
           fill
           priority
