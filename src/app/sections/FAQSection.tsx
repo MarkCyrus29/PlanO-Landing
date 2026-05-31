@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { useReveal } from "../../hooks/useReveal";
 
 const faqs = [
   {
@@ -47,18 +47,9 @@ const faqs = [
   },
 ];
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.06 } },
-};
-
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const ref = useReveal();
 
   const toggle = (i: number) => {
     setOpenIndex(openIndex === i ? null : i);
@@ -66,33 +57,23 @@ export default function FAQSection() {
 
   return (
     <section id="faq" className="bg-background py-24 lg:py-32">
-      <motion.div
-        className="max-w-3xl mx-auto px-6"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.12 }}
-        variants={stagger}
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
+        className="max-w-3xl mx-auto px-6 reveal-stagger"
       >
-        <motion.p
-          variants={fadeUp}
-          className="font-mono text-xs text-ink-tertiary uppercase tracking-widest mb-4"
-        >
+        <p className="reveal-fade-up font-mono text-xs text-ink-tertiary uppercase tracking-widest mb-4">
           Frequently Asked Questions
-        </motion.p>
-        <motion.h2
-          variants={fadeUp}
-          className="font-display text-3xl lg:text-4xl font-light text-ink mb-12 leading-snug"
-        >
+        </p>
+        <h2 className="reveal-fade-up font-display text-3xl lg:text-4xl font-light text-ink mb-12 leading-snug">
           Got questions?{" "}
           <span className="font-semibold text-primary">We have answers.</span>
-        </motion.h2>
+        </h2>
 
-        <motion.div variants={stagger} className="space-y-3">
+        <div className="space-y-3 reveal-stagger">
           {faqs.map((faq, i) => (
-            <motion.div
+            <div
               key={faq.question}
-              variants={fadeUp}
-              className="bg-surface/60 backdrop-blur-md rounded-xl border border-border/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 "
+              className="reveal-fade-up bg-surface border border-border/80 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <button
                 onClick={() => toggle(i)}
@@ -110,26 +91,20 @@ export default function FAQSection() {
                   }`}
                 />
               </button>
-              <AnimatePresence initial={false}>
-                {openIndex === i && (
-                  <motion.div
-                    id={`faq-answer-${i}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <p className="px-6 pb-5 font-sans text-sm text-ink-secondary leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              <div
+                id={`faq-answer-${i}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIndex === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <p className="px-6 pb-5 font-sans text-sm text-ink-secondary leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -36,16 +36,6 @@ const steps = [
 ];
 
 /* ── Animations ── */
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.05 } },
-};
-
 const previewVariants: Variants = {
   enter: { opacity: 0, y: 14, scale: 0.98 },
   center: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.28, ease: [0.16, 1, 0.3, 1] } },
@@ -112,11 +102,7 @@ function StepTwoPreview() {
             {f.status === "ok" ? (
               <Check size={12} className="text-primary" />
             ) : (
-              <motion.span
-                className="inline-block w-2 h-2 rounded-full bg-secondary"
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              />
+              <span className="inline-block w-2 h-2 rounded-full bg-secondary pulse-dot" />
             )}
           </div>
         </motion.div>
@@ -143,7 +129,7 @@ function StepThreePreview() {
       {suppliers.map((s, i) => (
         <motion.div
           key={s.cat}
-          className="flex items-center justify-between p-3 rounded-lg border border-border bg-background/50 hover:border-primary/40 transition-colors duration-150"
+          className="flex items-center justify-between p-3 rounded-lg border border-border bg-surface hover:border-primary/40 transition-colors duration-150"
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05 + i * 0.06, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
@@ -175,15 +161,9 @@ export default function HowItWorks() {
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <motion.div
-        className="max-w-7xl mx-auto px-6 relative z-10"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.08 }}
-        variants={stagger}
-      >
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div variants={fadeUp} className="text-center lg:text-left">
+        <div className="text-center lg:text-left mb-16">
           <p className="font-mono text-xs text-ink-tertiary uppercase tracking-widest mb-4">
             The Workflow
           </p>
@@ -191,10 +171,10 @@ export default function HowItWorks() {
             From raw inquiry <br className="hidden lg:block"/> to ready quote.
           </h2>
           <p className="font-sans text-sm lg:text-base text-ink-secondary">
-            <span className="lg:hidden">Tap the steps to see the magic happen.</span>
+            <span className="lg:hidden ">Tap the steps to see the magic happen.</span>
             <span className="hidden lg:inline">Scroll to see the magic happen.</span>
           </p>
-        </motion.div>
+        </div>
 
         {/* Layout: steps on left, sticky preview on right */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 items-start relative">
@@ -211,8 +191,8 @@ export default function HowItWorks() {
                   className={`
                     flex-1 flex flex-col items-center gap-1.5 py-3 px-2 rounded-xl border transition-all duration-300 cursor-pointer
                     ${isActive
-                      ? "bg-surface/80 backdrop-blur-md border-primary/30 shadow-lg shadow-primary/5"
-                      : "bg-surface/30 backdrop-blur-sm border-border hover:border-primary/20 hover:bg-surface/50 opacity-60"
+                      ? "bg-surface border-primary/30 shadow-lg shadow-primary/5"
+                      : "bg-surface/50 border-border hover:border-primary/20 hover:bg-surface/80 opacity-80"
                     }
                   `}
                 >
@@ -251,10 +231,10 @@ export default function HowItWorks() {
                   <button
                     onClick={() => setActive(i)}
                     className={`
-                      lg:sticky lg:top-32  relative w-full text-left p-6 lg:p-8 rounded-2xl border transition-all duration-300 cursor-pointer group
+                      lg:sticky lg:top-32 relative w-full text-left p-6 lg:p-8 rounded-2xl border transition-all duration-300 cursor-pointer group
                       ${isActive
-                        ? "bg-surface/80 backdrop-blur-md border-primary/30 shadow-xl shadow-primary/5 scale-100"
-                        : "bg-surface/30 backdrop-blur-sm border-border hover:border-primary/20 hover:bg-surface/50 scale-95 opacity-50 hover:opacity-100"
+                        ? "bg-surface border-primary/30 shadow-xl shadow-primary/5 scale-100"
+                        : "bg-surface/50 border-border hover:border-primary/20 hover:bg-surface/80 scale-95 opacity-60 hover:opacity-100"
                       }
                     `}
                   >
@@ -290,9 +270,9 @@ export default function HowItWorks() {
 
           {/* Live preview panel (Sticky on Desktop) */}
           <div className="w-full lg:flex-1 lg:sticky lg:top-32 transition-all duration-300 z-20">
-            <div className="relative bg-surface/80 backdrop-blur-xl rounded-3xl border border-white/40 shadow-2xl overflow-hidden ring-1 ring-ink/5">
+            <div className="relative bg-surface rounded-3xl border border-border shadow-2xl overflow-hidden">
               {/* Decorative top bar */}
-              <div className="flex items-center gap-1.5 px-6 py-4 border-b border-border/50 bg-background/30 backdrop-blur-md">
+              <div className="flex items-center gap-1.5 px-6 py-4 border-b border-border bg-background/50">
                 <div className="w-3 h-3 rounded-full bg-border" />
                 <div className="w-3 h-3 rounded-full bg-border" />
                 <div className="w-3 h-3 rounded-full bg-border" />
@@ -314,7 +294,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Content area */}
-              <div className="p-8 min-h-[380px] relative bg-gradient-to-b from-surface/50 to-background/20">
+              <div className="p-8 min-h-[380px] relative bg-gradient-to-b from-surface to-background/20">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -330,7 +310,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Mobile prev/next controls */}
-              <div className="lg:hidden px-6 py-4 border-t border-border/50 flex flex items-center justify-between bg-surface/80 backdrop-blur-md">
+              <div className="lg:hidden px-6 py-4 border-t border-border flex items-center justify-between bg-surface">
                 <button
                   onClick={() => setActive(Math.max(0, active - 1))}
                   className={`font-sans text-sm transition-colors duration-150 flex flex-row items-center gap-1 ${
@@ -354,7 +334,7 @@ export default function HowItWorks() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

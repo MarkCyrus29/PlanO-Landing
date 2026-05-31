@@ -1,30 +1,30 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { ArrowRight, Users, AlertCircle, Sparkles, CheckCircle2 } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-
-const stagger: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+import { useReveal } from "../../hooks/useReveal";
 
 export default function Hero() {
   const [animationStep, setAnimationStep] = useState<0 | 1 | 2>(0);
+  const [isInView, setIsInView] = useState(true);
+  const heroRef = useRef<HTMLElement>(null);
+  const revealRef = useReveal();
 
   useEffect(() => {
-    // Sequence: 0 (Chaos) -> wait 2s -> 1 (Scanning) -> wait 1.5s -> 2 (Clarity) -> wait 4s -> loop
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    if (heroRef.current) observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return; // Pause animation when offscreen
+    
+    // Sequence: 0 (Chaos) -> wait 1.2s -> 1 (Scanning) -> wait 1s -> 2 (Clarity) -> wait 3s -> loop
     let timeout: NodeJS.Timeout;
     if (animationStep === 0) {
       timeout = setTimeout(() => setAnimationStep(1), 1200);
@@ -34,90 +34,63 @@ export default function Hero() {
       timeout = setTimeout(() => setAnimationStep(0), 3000);
     }
     return () => clearTimeout(timeout);
-  }, [animationStep]);
+  }, [animationStep, isInView]);
 
   return (
-    <section id="hero" className="relative  overflow-hidden grain-overlay">
-      {/* SVG grain filter */}
-      <svg className="absolute w-0 h-0" aria-hidden="true">
-        <defs>
-          <filter id="grainFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-          </filter>
-        </defs>
-      </svg>
-
+    <section ref={heroRef} id="hero" className="relative overflow-hidden grain-overlay">
       {/* Decorative background layers */}
       <div className="hero-bg-layers" aria-hidden="true">
-        <motion.div
-          className="hero-orb hero-orb--primary"
-          animate={{ x: [0, 30], y: [0, -20], scale: [1, 1.05] }}
-          transition={{ duration: 18, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
-        />
-        <motion.div
-          className="hero-orb hero-orb--secondary"
-          animate={{ x: [0, -30], y: [0, 20], scale: [1, 1.05] }}
-          transition={{ duration: 22, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
-        />
+        <div className="hero-orb hero-orb--primary" />
+        <div className="hero-orb hero-orb--secondary" />
         <div className="hero-dots" />
         <div className="hero-vignette" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-8 sm:py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
         {/* Left content */}
-        <motion.div
-          className="flex-1 max-w-xl"
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
+        <div
+          ref={revealRef as React.RefObject<HTMLDivElement>}
+          className="flex-1 max-w-xl reveal-stagger"
         >
           {/* Pre-badge */}
-          <motion.div variants={fadeUp} className="mb-6">
+          <div className="reveal-fade-up mb-6">
             <span className="font-mono text-xs text-primary bg-primary-light rounded-full px-3 py-1 tracking-wide">
               WAITLIST OPEN — PHILIPPINES
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1 variants={fadeUp} className="font-display text-3xl sm:text-5xl lg:text-7xl font-light text-ink leading-tight mb-4 sm:mb-6">
+          <h1 className="reveal-fade-up font-display text-3xl sm:text-5xl lg:text-7xl font-light text-ink leading-tight mb-4 sm:mb-6">
             Your inquiries, <span className="font-semibold text-primary">briefed.</span>
             <br />
             Your suppliers, <span className="font-semibold text-primary">matched.</span>
-          </motion.h1>
+          </h1>
 
           {/* Sub-headline */}
-          <motion.p variants={fadeUp} className="font-sans text-base sm:text-lg text-ink-secondary mb-6 sm:mb-8 max-w-md">
+          <p className="reveal-fade-up font-sans text-base sm:text-lg text-ink-secondary mb-6 sm:mb-8 max-w-md">
             PlanO turns messy client chats into professional event briefs — and finds the right suppliers for your budget, instantly.
-          </motion.p>
+          </p>
 
           {/* CTAs */}
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 mb-6">
-            <motion.a
+          <div className="reveal-fade-up flex flex-col sm:flex-row items-center gap-4 mb-6">
+            <a
               href="#cta"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden bg-primary text-surface font-sans text-base font-medium px-8 py-3.5 rounded-full hover:bg-primary-dark transition-colors duration-180 flex items-center gap-2 shadow-lg shadow-primary/30 group"
+              className="relative overflow-hidden bg-primary text-surface font-sans text-base font-medium px-8 py-3.5 rounded-full hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-150 flex items-center gap-2 shadow-lg shadow-primary/30 group"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Join the Waitlist
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
               <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            </motion.a>
+            </a>
             <Link
               href="#how-it-works"
               className="font-sans text-base text-primary font-medium hover:text-primary-dark transition-colors duration-150"
             >
               See how it works
             </Link>
-          </motion.div>
-
-          {/* Social proof 
-          <motion.div variants={fadeUp} className="flex items-center gap-2 font-sans text-sm text-ink-tertiary">
-            <Users size={14} className="text-ink-tertiary" />
-            <span>Joined by coordinators across Luzon, Visayas &amp; Mindanao</span>
-          </motion.div> */}
-        </motion.div>
+          </div>
+        </div>
 
         {/* Right: Chaos to Clarity Animation */}
         <motion.div
@@ -174,7 +147,7 @@ export default function Hero() {
             transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
           >
             {animationStep === 2 && (
-              <div className="w-full bg-white/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-sm p-6 lg:p-8 relative overflow-hidden">
+              <div className="w-full bg-white/95 rounded-2xl border border-border shadow-sm p-6 lg:p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-25 ">
                   <Sparkles size={100} className="text-secondary"/>
                 </div>
@@ -222,7 +195,7 @@ function DataRow({ label, value }: { label: string; value: string }) {
 function ChatBubble({ text, delay, offset }: { text: string; delay: number; offset: string }) {
   return (
     <motion.div 
-      className={`bg-white/90 backdrop-blur shadow-xl rounded-2xl rounded-tl-sm p-3 sm:p-4 w-52 sm:w-64 lg:w-72 border border-border/50 ${offset}`}
+      className={`bg-white/95 shadow-xl rounded-2xl rounded-tl-sm p-3 sm:p-4 w-52 sm:w-64 lg:w-72 border border-border/50 ${offset}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.5, type: "spring" }}

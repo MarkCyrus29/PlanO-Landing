@@ -1,6 +1,7 @@
-import { Square, ArrowUp } from "lucide-react";
+import { Square } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ScrollToTop } from "./ScrollToTop";
 
 const footerLinks = ["Features", "How It Works", "For Coordinators", "FAQ"];
 const sectionIds = ["#features", "#how-it-works", "#for-coordinators", "#faq"];
@@ -42,13 +43,7 @@ export default function Footer() {
           </div>
 
           {/* Scroll to top */}
-          <Link
-            href="#"
-            className="text-ink-tertiary hover:text-surface transition-colors duration-150"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={18} />
-          </Link>
+          <ScrollToTop />
         </div>
 
         {/* Bottom bar */}

@@ -2,19 +2,9 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Lock, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { useReveal } from "../../hooks/useReveal";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -25,6 +15,7 @@ export default function CTASection() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
+  const ref = useReveal();
 
   /* ── Load Turnstile widget ── */
   useEffect(() => {
@@ -152,22 +143,19 @@ export default function CTASection() {
 
   return (
     <section id="cta" className="bg-primary py-24 lg:py-32">
-      <motion.div
-        className="max-w-2xl mx-auto px-6 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.12 }}
-        variants={stagger}
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
+        className="max-w-2xl mx-auto px-6 text-center reveal-stagger"
       >
-        <motion.h2 variants={fadeUp} className="font-display text-4xl lg:text-5xl font-light text-surface mb-6 leading-snug">
+        <h2 className="reveal-fade-up font-display text-4xl lg:text-5xl font-light text-surface mb-6 leading-snug">
           Be part of the waitlist
           <br />
           for PlanO.
-        </motion.h2>
+        </h2>
 
         {formState !== "success" ? (
           <>
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto mb-4">
+            <div className="reveal-fade-up flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto mb-4">
               <input
                 id="cta-email-input"
                 type="email"
@@ -200,34 +188,25 @@ export default function CTASection() {
                   "Join the Waitlist"
                 )}
               </button>
-            </motion.div>
+            </div>
 
             {/* Turnstile widget */}
             {TURNSTILE_SITE_KEY && (
-              <motion.div variants={fadeUp} className="flex justify-center mb-4">
+              <div className="reveal-fade-up flex justify-center mb-4">
                 <div ref={turnstileRef} />
-              </motion.div>
+              </div>
             )}
 
             {/* Error message */}
             {formState === "error" && errorMessage && (
-              <motion.div
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-center gap-2 text-amber-light font-sans text-sm mb-4"
-              >
+              <div className="flex items-center justify-center gap-2 text-amber-light font-sans text-sm mb-4 transition-opacity duration-300">
                 <AlertCircle size={14} />
                 <span>{errorMessage}</span>
-              </motion.div>
+              </div>
             )}
           </>
         ) : (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", bounce: 0.4 }}
-            className="bg-surface/10 border border-surface/20 rounded-xl p-6 max-w-md mx-auto mb-6"
-          >
+          <div className="bg-surface/10 border border-surface/20 rounded-xl p-6 max-w-md mx-auto mb-6 transform transition-all duration-500">
             <div className="flex items-center justify-center gap-2 mb-2">
               <CheckCircle2 size={20} className="text-surface" />
               <p className="font-sans text-base text-surface font-medium">
@@ -237,14 +216,14 @@ export default function CTASection() {
             <p className="font-sans text-sm text-surface/70">
               We&rsquo;ll reach out when your spot is ready.
             </p>
-          </motion.div>
+          </div>
         )}
 
-        <motion.div variants={fadeUp} className="flex items-center justify-center gap-2 font-sans text-xs text-surface/60">
+        <div className="reveal-fade-up flex items-center justify-center gap-2 font-sans text-xs text-surface/60">
           <Lock size={12} />
           <span>Your information is private and never shared with suppliers.</span>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

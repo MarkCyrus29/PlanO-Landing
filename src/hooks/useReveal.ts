@@ -2,7 +2,12 @@
 
 import { useEffect, useRef } from "react";
 
-export function useReveal(staggerMs = 80) {
+/**
+ * Lightweight IntersectionObserver-based reveal hook.
+ * Adds `.reveal-visible` to children with `.reveal-fade-up`, `.reveal-fade-left`, or `.reveal-fade-right`.
+ * Uses CSS transitions (no JS animation library).
+ */
+export function useReveal(threshold = 0.12) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -12,25 +17,29 @@ export function useReveal(staggerMs = 80) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const children = el.querySelectorAll(".reveal-hidden, .reveal-left, .reveal-right");
-          children.forEach((child, i) => {
-            setTimeout(() => {
-              child.classList.add("reveal-visible");
-            }, i * staggerMs);
+          const children = el.querySelectorAll(
+            ".reveal-fade-up, .reveal-fade-left, .reveal-fade-right"
+          );
+          children.forEach((child) => {
+            child.classList.add("reveal-visible");
           });
-          // Also reveal the container itself if it has the class
-          if (el.classList.contains("reveal-hidden")) {
+          // Also reveal the container itself
+          if (
+            el.classList.contains("reveal-fade-up") ||
+            el.classList.contains("reveal-fade-left") ||
+            el.classList.contains("reveal-fade-right")
+          ) {
             el.classList.add("reveal-visible");
           }
           observer.unobserve(el);
         }
       },
-      { threshold: 0.12 }
+      { threshold }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [staggerMs]);
+  }, [threshold]);
 
   return ref;
 }
