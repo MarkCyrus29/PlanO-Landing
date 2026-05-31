@@ -2,8 +2,8 @@ import { Square, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const footerLinks = ["Features", "How It Works", "For Coordinators"];
-const sectionIds = ["#features", "#how-it-works", "#for-coordinators"];
+const footerLinks = ["Features", "How It Works", "For Coordinators", "FAQ"];
+const sectionIds = ["#features", "#how-it-works", "#for-coordinators", "#faq"];
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
             >
               <Image
                 src="/plano-w.svg"
-                alt="PlanO"
+                alt="PlanO — AI Event Planning for Filipino Coordinators"
                 fill
                 sizes="64px"
                 className="object-contain"

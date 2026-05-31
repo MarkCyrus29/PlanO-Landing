@@ -210,7 +210,7 @@ export async function POST(request: NextRequest) {
                   <div style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                     <span style="color: #1d9e75; font-weight: 700; font-size: 14px; margin-right: 12px; flex-shrink: 0;">02</span>
                     <p style="color: #6b6a65; font-size: 13px; margin: 0; line-height: 1.5;">
-                      PlanO is <strong style="color: #1a1915;">free during beta</strong> — no credit card required.
+                      We'll send you everything you need to get started once your access is ready.
                     </p>
                   </div>
 
@@ -226,7 +226,7 @@ export async function POST(request: NextRequest) {
               <!-- Footer -->
               <div style="text-align: center; margin-top: 32px;">
                 <p style="color: #9b9a94; font-size: 12px; margin: 0 0 4px 0;">
-                  You received this email because you signed up at plano.app
+                  You received this email because you signed up at planoevents.site
                 </p>
                 <p style="color: #9b9a94; font-size: 12px; margin: 0;">
                   © ${new Date().getFullYear()} PlanO. All rights reserved.

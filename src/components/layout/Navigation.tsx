@@ -2,8 +2,8 @@ import { Square, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const navLinks = ["Features", "How It Works", "For Coordinators"];
-const sectionIds = ["features", "how-it-works", "for-coordinators"];
+const navLinks = ["Features", "How It Works", "For Coordinators", "FAQ"];
+const sectionIds = ["features", "how-it-works", "for-coordinators", "faq"];
 
 export default function Navigation() {
   return (
@@ -16,7 +16,7 @@ export default function Navigation() {
         >
           <Image 
           src="/plano-bk.svg"
-          alt="PlanO"
+          alt="PlanO — AI Event Planning for Filipino Coordinators"
           fill
           priority
           sizes="160px"

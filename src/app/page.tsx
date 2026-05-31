@@ -4,6 +4,7 @@ import PainSection from "./sections/PainSection";
 import Features from "./sections/Features";
 import HowItWorks from "./sections/HowItWorks";
 import ForCoordinators from "./sections/ForCoordinators";
+import FAQSection from "./sections/FAQSection";
 import CTASection from "./sections/CTASection";
 import Footer from "../components/layout/Footer";
 
@@ -17,9 +18,11 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <ForCoordinators />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
     </>
   );
 }
+
