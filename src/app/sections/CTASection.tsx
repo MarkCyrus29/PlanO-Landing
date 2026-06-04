@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Lock, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useReveal } from "../../hooks/useReveal";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -13,80 +14,15 @@ export default function CTASection() {
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-  const turnstileRef = useRef<HTMLDivElement>(null);
-  const widgetIdRef = useRef<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
   const ref = useReveal();
-
-  /* ── Load Turnstile widget ── */
-  useEffect(() => {
-    if (!TURNSTILE_SITE_KEY) return;
-
-    let active = true; // track whether this effect instance is still mounted
-
-    const renderWidget = () => {
-      if (
-        !active ||
-        !turnstileRef.current ||
-        !window.turnstile ||
-        widgetIdRef.current
-      )
-        return;
-
-      widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-        sitekey: TURNSTILE_SITE_KEY,
-        callback: (token: string) => setTurnstileToken(token),
-        "expired-callback": () => setTurnstileToken(null),
-        "error-callback": () => setTurnstileToken(null),
-        theme: "light",
-        size: "flexible",
-      });
-    };
-
-    // If script is already loaded
-    if (window.turnstile) {
-      renderWidget();
-    } else {
-      // Only inject the script tag if it hasn't been added yet
-      const existing = document.querySelector(
-        'script[src*="challenges.cloudflare.com/turnstile"]'
-      );
-      if (existing) {
-        // Script exists but turnstile object not ready yet — wait for it
-        existing.addEventListener("load", () => setTimeout(renderWidget, 100));
-      } else {
-        const script = document.createElement("script");
-        script.src =
-          "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-        script.async = true;
-        script.defer = true;
-        script.onload = () => setTimeout(renderWidget, 100);
-        document.head.appendChild(script);
-      }
-    }
-
-    return () => {
-      active = false;
-      if (widgetIdRef.current && window.turnstile) {
-        try {
-          window.turnstile.remove(widgetIdRef.current);
-        } catch {
-          // widget may already be gone — that's fine
-        }
-        widgetIdRef.current = null;
-      }
-      // Clear the container so a fresh mount can re-render cleanly
-      if (turnstileRef.current) {
-        turnstileRef.current.innerHTML = "";
-      }
-    };
-  }, []);
 
   /* ── Reset turnstile after submission ── */
   const resetTurnstile = useCallback(() => {
-    if (widgetIdRef.current && window.turnstile) {
-      window.turnstile.reset(widgetIdRef.current);
-      setTurnstileToken(null);
+    if (turnstileRef.current) {
+      turnstileRef.current.reset();
     }
+    setTurnstileToken(null);
   }, []);
 
   /* ── Submit handler ── */
@@ -193,7 +129,17 @@ export default function CTASection() {
             {/* Turnstile widget */}
             {TURNSTILE_SITE_KEY && (
               <div className="reveal-fade-up flex justify-center mb-4">
-                <div ref={turnstileRef} />
+                <Turnstile
+                  siteKey={TURNSTILE_SITE_KEY}
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => setTurnstileToken(null)}
+                  onExpire={() => setTurnstileToken(null)}
+                  options={{
+                    theme: "light",
+                    size: "flexible",
+                  }}
+                  ref={turnstileRef}
+                />
               </div>
             )}
 
@@ -204,6 +150,13 @@ export default function CTASection() {
                 <span>{errorMessage}</span>
               </div>
             )}
+
+            {/* Consent notice — uncomment at launch when privacy policy is live
+            <p className="font-sans text-xs text-surface/50 mb-4">
+              By joining, you agree to our{" "}
+              <a href="/privacy" className="underline hover:text-surface/70 transition-colors">Privacy Policy</a>.
+            </p>
+            */}
           </>
         ) : (
           <div className="bg-surface/10 border border-surface/20 rounded-xl p-6 max-w-md mx-auto mb-6 transform transition-all duration-500">

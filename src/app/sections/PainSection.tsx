@@ -32,8 +32,8 @@ const messyChats = [
   "pa-send rates for partial coord",
 ];
 
-// Duplicate for seamless marquee
-const marqueeItems = [...messyChats, ...messyChats, ...messyChats];
+// Duplicate once for seamless CSS marquee (translateX(-50%) loops 2 copies)
+const marqueeItems = [...messyChats, ...messyChats];
 
 export default function PainSection() {
   const sectionRef = useReveal();
@@ -66,7 +66,7 @@ export default function PainSection() {
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling track */}
-          <div className="flex gap-4 w-max animate-[marquee_30s_linear_infinite]">
+          <div className="flex gap-4 w-max marquee-track" style={{ willChange: "transform" }}>
             {marqueeItems.map((chat, i) => (
               <div
                 key={i}

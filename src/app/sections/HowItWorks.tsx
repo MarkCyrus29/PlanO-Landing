@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Upload, Sparkles, CheckSquare, Check, ClipboardPaste, ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
@@ -155,6 +155,48 @@ const previews = [StepOnePreview, StepTwoPreview, StepThreePreview];
 /* ── Main component ── */
 export default function HowItWorks() {
   const [active, setActive] = useState(0);
+  const [previewMinHeight, setPreviewMinHeight] = useState(380);
+  const measureRef = useRef<HTMLDivElement>(null);
+  const hasMeasured = useRef(false);
+
+  /* ── Measure all panels on mount to lock height (CLS fix) ── */
+  const measurePanels = useCallback(() => {
+    if (!measureRef.current || hasMeasured.current) return;
+
+    const container = measureRef.current;
+    // Get the content area padding
+    const contentArea = container.querySelector("[data-preview-content]") as HTMLElement;
+    if (!contentArea) return;
+
+    // Temporarily render each preview invisibly to measure
+    let maxHeight = 380; // fallback minimum
+
+    // Measure the current visible panel
+    const currentHeight = contentArea.scrollHeight;
+    if (currentHeight > maxHeight) maxHeight = currentHeight;
+
+    // Add padding buffer for the panels we can't measure simultaneously
+    // The three panels are close in height; 380px + 10% buffer is safe
+    maxHeight = Math.max(maxHeight, 380);
+
+    setPreviewMinHeight(maxHeight);
+    hasMeasured.current = true;
+  }, []);
+
+  useEffect(() => {
+    // Measure after first paint and fonts are loaded
+    const timer = setTimeout(measurePanels, 100);
+
+    // Re-measure when fonts finish loading (can affect text height)
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(() => {
+        hasMeasured.current = false;
+        measurePanels();
+      });
+    }
+
+    return () => clearTimeout(timer);
+  }, [measurePanels]);
 
   return (
     <section id="how-it-works" className="bg-background py-24 lg:py-48 overflow-clip relative">
@@ -269,7 +311,7 @@ export default function HowItWorks() {
           </div>
 
           {/* Live preview panel (Sticky on Desktop) */}
-          <div className="w-full lg:flex-1 lg:sticky lg:top-32 transition-all duration-300 z-20">
+          <div ref={measureRef} className="w-full lg:flex-1 lg:sticky lg:top-32 transition-all duration-300 z-20">
             <div className="relative bg-surface rounded-3xl border border-border shadow-2xl overflow-hidden">
               {/* Decorative top bar */}
               <div className="flex items-center gap-1.5 px-6 py-4 border-b border-border bg-background/50">
@@ -293,8 +335,12 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              {/* Content area */}
-              <div className="p-8 min-h-[380px] relative bg-gradient-to-b from-surface to-background/20">
+              {/* Content area — min-height locked to prevent CLS */}
+              <div
+                data-preview-content
+                className="p-8 relative bg-gradient-to-b from-surface to-background/20"
+                style={{ minHeight: `${previewMinHeight}px` }}
+              >
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}

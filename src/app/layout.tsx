@@ -57,6 +57,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "PlanO — AI-Powered Event Planning for Filipino Coordinators",
+        type: "image/png",
       },
     ],
     locale: "en_PH",
@@ -233,7 +234,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col">{children}</body>
     </html>
   );
 }
