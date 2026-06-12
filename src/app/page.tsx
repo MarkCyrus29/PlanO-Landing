@@ -7,6 +7,13 @@ import ForCoordinators from "./sections/ForCoordinators";
 import FAQSection from "./sections/FAQSection";
 import CTASection from "./sections/CTASection";
 import Footer from "../components/layout/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

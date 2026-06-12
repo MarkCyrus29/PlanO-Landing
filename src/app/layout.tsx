@@ -42,9 +42,6 @@ export const metadata: Metadata = {
   authors: [{ name: "PlanO" }],
   creator: "PlanO",
   publisher: "PlanO",
-  alternates: {
-    canonical: "https://planoevents.site",
-  },
   openGraph: {
     title: "PlanO — AI Event Briefs & Supplier Matching",
     description:
