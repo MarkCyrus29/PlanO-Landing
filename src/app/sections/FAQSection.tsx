@@ -1,8 +1,5 @@
-"use client";
-
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { useReveal } from "../../hooks/useReveal";
+import { RevealWrapper } from "../../components/ui/RevealWrapper";
 
 const faqs = [
   {
@@ -48,19 +45,9 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const ref = useReveal();
-
-  const toggle = (i: number) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
-
   return (
     <section id="faq" className="bg-background py-24 lg:py-32">
-      <div
-        ref={ref as React.RefObject<HTMLDivElement>}
-        className="max-w-3xl mx-auto px-6 reveal-stagger"
-      >
+      <RevealWrapper className="max-w-3xl mx-auto px-6 reveal-stagger">
         <p className="reveal-fade-up font-mono text-xs text-ink-tertiary uppercase tracking-widest mb-4">
           Frequently Asked Questions
         </p>
@@ -70,41 +57,27 @@ export default function FAQSection() {
         </h2>
 
         <div className="space-y-3 reveal-stagger">
-          {faqs.map((faq, i) => (
-            <div
+          {faqs.map((faq) => (
+            <details
               key={faq.question}
-              className="reveal-fade-up bg-surface border border-border/80 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="group reveal-fade-up bg-surface border border-border/80 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 [&_summary::-webkit-details-marker]:hidden"
             >
-              <button
-                onClick={() => toggle(i)}
-                className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 cursor-pointer group"
-                aria-expanded={openIndex === i}
-                aria-controls={`faq-answer-${i}`}
-              >
+              <summary className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 cursor-pointer">
                 <span className="font-sans text-sm font-semibold text-ink group-hover:text-primary transition-colors duration-150">
                   {faq.question}
                 </span>
                 <ChevronDown
                   size={16}
-                  className={`text-ink-tertiary shrink-0 transition-transform duration-300 ${
-                    openIndex === i ? "rotate-180" : ""
-                  }`}
+                  className="text-ink-tertiary shrink-0 transition-transform duration-300 group-open:rotate-180"
                 />
-              </button>
-              <div
-                id={`faq-answer-${i}`}
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <p className="px-6 pb-5 font-sans text-sm text-ink-secondary leading-relaxed">
-                  {faq.answer}
-                </p>
+              </summary>
+              <div className="px-6 pb-5 font-sans text-sm text-ink-secondary leading-relaxed">
+                <p>{faq.answer}</p>
               </div>
-            </div>
+            </details>
           ))}
         </div>
-      </div>
+      </RevealWrapper>
     </section>
   );
 }

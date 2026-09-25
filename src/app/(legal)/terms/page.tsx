@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Terms of Service — PlanO",
   description: "PlanO Terms of Service. Coming at launch.",
   robots: { index: false, follow: false },
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

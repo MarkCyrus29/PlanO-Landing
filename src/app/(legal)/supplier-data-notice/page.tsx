@@ -5,9 +5,10 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Data Deletion — PlanO",
-  description: "Request data deletion from PlanO. Coming at launch.",
+  title: "Supplier Data Notice — PlanO",
+  description: "Request Supplier Data Notice from PlanO. Coming at launch.",
   robots: { index: false, follow: false },
+  alternates: { canonical: "/supplier-data-notice" },
 };
 
 export default function DataDeletionPage() {
@@ -20,10 +21,10 @@ export default function DataDeletionPage() {
           <Trash2 size={24} className="text-primary" />
         </div>
         <h1 className="font-display text-3xl font-light text-ink mb-3">
-          Data Deletion
+          Supplier Data Notice
         </h1>
         <p className="font-sans text-sm text-ink-secondary mb-8 leading-relaxed">
-          Our data deletion process will be available at launch. In the
+          Our Supplier Data Notice process will be available at launch. In the
           meantime, you can email{" "}
           <a
             href="mailto:info@planoevents.site"

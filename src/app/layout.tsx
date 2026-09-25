@@ -24,26 +24,34 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://planoevents.site"),
-  title: "PlanO — AI Event Briefs & Supplier Matching for Coordinators",
+  title: "PlanO | AI Event Brief Generator & Supplier Matching — Philippines",
   description:
     "PlanO turns messy client chats into professional event briefs and finds the right suppliers for your budget, instantly. Built for event coordinators in the Philippines.",
   keywords: [
-    "PlanO",
-    "event brief generator",
-    "supplier matching",
-    "event coordinator software",
+    "PlanO Events Philippines",
+    "PlanO events PH",
+    "event brief generator Philippines",
+    "supplier matching Manila",
+    "event coordinator software Philippines",
     "AI event planning",
     "Philippines event coordinator",
     "wedding coordinator app",
     "Taglish event planning",
-    "event planning tool",
     "Filipino event coordinator",
+    "not Plano Texas events",
+    "plano events",
+    "PlanO Events"
   ],
-  authors: [{ name: "PlanO" }],
+  authors: [{ name: "PlanO Events Philippines" }],
   creator: "PlanO",
   publisher: "PlanO",
+  alternates: {
+    languages: {
+      "en-PH": "https://planoevents.site",
+    },
+  },
   openGraph: {
-    title: "PlanO — AI Event Briefs & Supplier Matching",
+    title: "PlanO — AI Event Briefs & Supplier Matching | Philippines",
     description:
       "Turn messy client chats into professional event briefs and match with the right suppliers. Built for Filipino event coordinators.",
     url: "https://planoevents.site",
@@ -62,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PlanO — AI Event Briefs & Supplier Matching",
+    title: "PlanO — AI Event Briefs & Supplier Matching | Philippines",
     description:
       "Turn messy client chats into professional event briefs. Built for Filipino coordinators.",
     images: ["/og-image.png"],
@@ -84,113 +92,187 @@ export const metadata: Metadata = {
 };
 
 /* ── JSON-LD Structured Data ── */
-const organizationSchema = {
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "PlanO",
-  url: "https://planoevents.site",
-  logo: "https://planoevents.site/plano-bk.svg",
-  description:
-    "AI-powered event brief generator and supplier matching platform for Filipino event coordinators.",
-  foundingDate: "2026",
-  areaServed: {
-    "@type": "Country",
-    name: "Philippines",
-  },
-  sameAs: [],
-};
-
-const webSiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "PlanO",
-  url: "https://planoevents.site",
-  description:
-    "AI-powered event brief generator and supplier matching for Filipino event coordinators.",
-};
-
-const softwareAppSchema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "PlanO",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  description:
-    "AI-powered event coordination platform that converts messy client chats into structured event briefs and matches coordinators with the right suppliers based on budget, location, and margin.",
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/PreOrder",
-    description: "Join the waitlist for early access",
-  },
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
+  "@graph": [
     {
-      "@type": "Question",
-      name: "What is PlanO?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "PlanO is an AI-powered event planning tool built for Filipino event coordinators. It converts messy client messages — including Taglish — into structured event briefs in seconds and matches coordinators with the right suppliers based on budget, location, and margin preferences.",
+      "@type": "Organization",
+      "@id": "https://planoevents.site/#organization",
+      name: "PlanO",
+      url: "https://planoevents.site",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://planoevents.site/plano-bk.svg",
       },
+      description:
+        "AI-powered event coordination platform that converts client messages into structured event briefs and matches Filipino coordinators with the right suppliers.",
+      foundingDate: "2026",
+      areaServed: [
+        { "@type": "Country", name: "Philippines" },
+        { "@type": "City", name: "Lipa" },
+        { "@type": "City", name: "Batangas" }
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "info@planoevents.site",
+        contactType: "customer support",
+      },
+      sameAs: [
+        "https://www.instagram.com/planoevents/",
+        "https://www.facebook.com/planoevents.ph",
+        "https://www.linkedin.com/company/planoevents"
+      ],
     },
     {
-      "@type": "Question",
-      name: "How does PlanO create event briefs?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "PlanO uses AI to read client messages from Messenger, Viber, or SMS, including Taglish text. It automatically extracts event details like event type, date, guest count, budget, and venue into a structured brief. It also flags missing information and suggests follow-up questions.",
-      },
+      "@type": "WebSite",
+      "@id": "https://planoevents.site/#website",
+      name: "PlanO Events Philippines",
+      url: "https://planoevents.site",
+      publisher: { "@id": "https://planoevents.site/#organization" },
+      description:
+        "AI-powered event coordination platform for Filipino event planners and coordinators. (Serving the Philippines, not Plano Texas).",
     },
     {
-      "@type": "Question",
-      name: "How does supplier matching work?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "PlanO matches coordinators with suppliers from their private database, filtered by distance from the venue and price within the client budget. It optimizes for your profit margin, not just the cheapest option. Your supplier list is private and never shared with other coordinators.",
+      "@type": "SoftwareApplication",
+      "@id": "https://planoevents.site/#app",
+      name: "PlanO",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description:
+        "AI-powered event coordination platform that converts messy client chats into structured event briefs and matches coordinators with the right suppliers based on budget, location, and margin.",
+      author: { "@id": "https://planoevents.site/#organization" },
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/PreOrder",
+        price: "0",
+        priceCurrency: "PHP",
+        description: "Join the waitlist for early access",
       },
+      featureList: [
+        "AI event brief extraction from Taglish messages",
+        "Private supplier database and matching",
+        "Margin-optimized supplier recommendations",
+        "Missing information detection and follow-up question generation",
+      ],
     },
     {
-      "@type": "Question",
-      name: "How do I get access to PlanO?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "PlanO is currently rolling out access to waitlist members. Sign up at planoevents.site and we'll notify you when your spot is ready.",
-      },
+      "@type": "WebPage",
+      "@id": "https://planoevents.site/#webpage",
+      url: "https://planoevents.site",
+      name: "PlanO | AI Event Brief Generator & Supplier Matching — Philippines",
+      isPartOf: { "@id": "https://planoevents.site/#website" },
+      about: { "@id": "https://planoevents.site/#app" },
+      description:
+        "PlanO turns messy client chats into professional event briefs and finds the right suppliers for your budget, instantly. Built for event coordinators in the Philippines.",
     },
     {
-      "@type": "Question",
-      name: "Who is PlanO for?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "PlanO is built specifically for freelance and independent event coordinators in the Philippines — wedding coordinators, corporate event planners, and debut organizers who manage client inquiries across multiple messaging platforms.",
-      },
+      "@type": "FAQPage",
+      "@id": "https://planoevents.site/#faq",
+      isPartOf: { "@id": "https://planoevents.site/#webpage" },
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is PlanO?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "PlanO is an AI-powered event planning tool built for Filipino event coordinators. It converts messy client messages — including Taglish — into structured event briefs in seconds and matches coordinators with the right suppliers based on budget, location, and margin preferences.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How does PlanO create event briefs?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "PlanO uses AI to read client messages from Messenger, Viber, or SMS, including Taglish text. It automatically extracts event details like event type, date, guest count, budget, and venue into a structured brief. It also flags missing information and suggests follow-up questions.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How does supplier matching work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "PlanO matches coordinators with suppliers from their private database, filtered by distance from the venue and price within the client budget. It optimizes for your profit margin, not just the cheapest option. Your supplier list is private and never shared with other coordinators.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I get access to PlanO?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "PlanO is currently rolling out access to waitlist members. Sign up at planoevents.site and we'll notify you when your spot is ready.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Who is PlanO for?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "PlanO is built specifically for freelance and independent event coordinators in the Philippines — wedding coordinators, corporate event planners, and debut organizers who manage client inquiries across multiple messaging platforms.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does PlanO understand Taglish?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. PlanO's AI is designed to understand Taglish (Tagalog-English mixed language), including informal chat-style messages with abbreviations, typos, and colloquial expressions commonly used in Filipino Messenger and Viber conversations.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is my supplier list private?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Absolutely. Your supplier database in PlanO is private and encrypted. No other coordinator can see your supplier list, pricing, or margin settings. PlanO is not a marketplace — it's your personal coordination tool.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "When will PlanO launch?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "PlanO is currently rolling out access in waves to waitlist members. Join the waitlist at planoevents.site to be notified when your spot is ready.",
+          },
+        }
+      ],
     },
     {
-      "@type": "Question",
-      name: "Does PlanO understand Taglish?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. PlanO's AI is designed to understand Taglish (Tagalog-English mixed language), including informal chat-style messages with abbreviations, typos, and colloquial expressions commonly used in Filipino Messenger and Viber conversations.",
-      },
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://planoevents.site",
+        },
+      ],
     },
     {
-      "@type": "Question",
-      name: "Is my supplier list private?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Absolutely. Your supplier database in PlanO is private and encrypted. No other coordinator can see your supplier list, pricing, or margin settings. PlanO is not a marketplace — it's your personal coordination tool.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "When will PlanO launch?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "PlanO is currently rolling out access in waves to waitlist members. Join the waitlist at planoevents.site to be notified when your spot is ready.",
-      },
+      "@type": "HowTo",
+      "@id": "https://planoevents.site/#howto",
+      name: "How to create an event brief with PlanO",
+      description:
+        "Three steps to go from a raw client inquiry to a ready-to-send supplier quote using PlanO.",
+      step: [
+        {
+          "@type": "HowToStep",
+          position: 1,
+          name: "Paste or upload the inquiry",
+          text: "Copy a client message from Messenger, Viber, or SMS, or upload a screenshot. PlanO accepts Taglish messages.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 2,
+          name: "Review the AI-extracted brief",
+          text: "PlanO extracts event details like date, guest count, budget, and venue. Review the fields and flag any corrections.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 3,
+          name: "Generate a matched supplier quote",
+          text: "PlanO matches suppliers from your private database filtered by distance and budget, optimized for your margin.",
+        },
+      ],
     },
   ],
 };
@@ -202,32 +284,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-PH"
       className={`${inter.variable} ${fraunces.variable} ${dmMono.variable} antialiased`}
     >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(webSiteSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareAppSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
+            __html: JSON.stringify(jsonLd),
           }}
         />
       </head>

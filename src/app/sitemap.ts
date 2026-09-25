@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://planoevents.site",
-      lastModified: new Date(),
+      lastModified: "2026-09-25",
       changeFrequency: "weekly",
       priority: 1,
     },

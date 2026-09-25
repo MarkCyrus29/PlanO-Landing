@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy — PlanO",
   description: "PlanO Privacy Policy. Coming at launch.",
   robots: { index: false, follow: false },
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

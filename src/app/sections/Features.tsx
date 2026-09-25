@@ -1,35 +1,22 @@
-"use client";
-
 import { FileText, AlertCircle, Zap } from "lucide-react";
-import { useReveal } from "../../hooks/useReveal";
+import { RevealWrapper } from "../../components/ui/RevealWrapper";
 
 export default function Features() {
-  const section1Ref = useReveal();
-  const section2Ref = useReveal();
-  const section3Ref = useReveal();
-  const headerRef = useReveal();
-
   return (
     <section id="features" className="bg-ink py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div
-          ref={headerRef as React.RefObject<HTMLDivElement>}
-          className="reveal-stagger"
-        >
+        <RevealWrapper className="reveal-stagger">
           <p className="reveal-fade-up font-mono text-xs text-primary uppercase tracking-widest mb-4">
             What PlanO Does
           </p>
           <h2 className="reveal-fade-up font-display text-4xl lg:text-5xl font-light text-surface mb-20 leading-snug">
             Three tools. One workflow.
           </h2>
-        </div>
+        </RevealWrapper>
 
         {/* Feature 1 — text left, mockup right */}
-        <div
-          ref={section1Ref as React.RefObject<HTMLDivElement>}
-          className="flex flex-col lg:flex-row items-start gap-12 mb-24 reveal-stagger"
-        >
+        <RevealWrapper className="flex flex-col lg:flex-row items-start gap-12 mb-24 reveal-stagger">
           <div className="reveal-fade-left flex-1 max-w-md">
             <FileText size={24} className="text-primary mb-4" />
             <h3 className="font-display text-2xl lg:text-3xl font-light text-surface mb-4">
@@ -53,13 +40,10 @@ export default function Features() {
               </div>
             </div>
           </div>
-        </div>
+        </RevealWrapper>
 
         {/* Feature 2 — text right, mockup left */}
-        <div
-          ref={section2Ref as React.RefObject<HTMLDivElement>}
-          className="flex flex-col lg:flex-row-reverse items-start gap-12 mb-24 reveal-stagger"
-        >
+        <RevealWrapper className="flex flex-col lg:flex-row-reverse items-start gap-12 mb-24 reveal-stagger">
           <div className="reveal-fade-right flex-1 max-w-md">
             <AlertCircle size={24} className="text-secondary mb-4" />
             <h3 className="font-display text-2xl lg:text-3xl font-light text-surface mb-4">
@@ -83,13 +67,10 @@ export default function Features() {
               </button>
             </div>
           </div>
-        </div>
+        </RevealWrapper>
 
         {/* Feature 3 — text left, mockup right */}
-        <div
-          ref={section3Ref as React.RefObject<HTMLDivElement>}
-          className="flex flex-col lg:flex-row items-start gap-12 reveal-stagger"
-        >
+        <RevealWrapper className="flex flex-col lg:flex-row items-start gap-12 reveal-stagger">
           <div className="reveal-fade-left flex-1 max-w-md">
             <Zap size={24} className="text-primary mb-4" />
             <h3 className="font-display text-2xl lg:text-3xl font-light text-surface mb-4">
@@ -112,7 +93,7 @@ export default function Features() {
               </div>
             </div>
           </div>
-        </div>
+        </RevealWrapper>
       </div>
     </section>
   );

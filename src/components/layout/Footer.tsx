@@ -8,8 +8,8 @@ const sectionIds = ["#features", "#how-it-works", "#for-coordinators", "#faq"];
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-  { label: "Data Deletion", href: "/data-deletion" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Supplier Data Notice", href: "/supplier-data-notice" },
 ];
 
 export default function Footer() {
@@ -25,6 +25,7 @@ export default function Footer() {
                 src="/plano-w.svg" 
                 alt="PlanO — AI Event Planning for Filipino Coordinators" 
                 fill 
+                sizes="96px"
                 className="object-contain md:object-left" 
               />
             </Link>

@@ -1,7 +1,5 @@
-"use client";
-
 import { MessageSquare, Clock, FileX } from "lucide-react";
-import { useReveal } from "../../hooks/useReveal";
+import { RevealWrapper } from "../../components/ui/RevealWrapper";
 
 const painPoints = [
   {
@@ -36,17 +34,12 @@ const messyChats = [
 const marqueeItems = [...messyChats, ...messyChats];
 
 export default function PainSection() {
-  const sectionRef = useReveal();
-
   return (
     <section className="bg-background py-24 lg:py-32 overflow-hidden relative">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div
-        ref={sectionRef as React.RefObject<HTMLDivElement>}
-        className="max-w-7xl mx-auto px-6 relative z-10 reveal-stagger"
-      >
+      <RevealWrapper className="max-w-7xl mx-auto px-6 relative z-10 reveal-stagger">
         {/* Eyebrow */}
         <p className="reveal-fade-up font-mono text-xs text-ink-tertiary uppercase tracking-widest mb-4">
           Sound Familiar?
@@ -54,9 +47,7 @@ export default function PainSection() {
 
         {/* Headline */}
         <h2 className="reveal-fade-up font-display text-3xl lg:text-4xl font-light text-ink mb-12 max-w-xl leading-snug">
-          Coordinators are drowning in
-          <br />
-          <span className="font-semibold text-red-500/80">scattered information.</span>
+          Common challenges for event coordinators in the Philippines.
         </h2>
 
         {/* Wall of Pain Marquee — no backdrop-blur on individual items */}
@@ -99,7 +90,7 @@ export default function PainSection() {
             </div>
           ))}
         </div>
-      </div>
+      </RevealWrapper>
     </section>
   );
 }
