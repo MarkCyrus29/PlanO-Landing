@@ -4,11 +4,12 @@ import Image from "next/image";
 import { ScrollToTop } from "./ScrollToTop";
 
 const footerLinks = ["Features", "How It Works", "For Coordinators", "FAQ"];
-const sectionIds = ["#features", "#how-it-works", "#for-coordinators", "#faq"];
+const sectionIds = ["/#features", "/#how-it-works", "/#for-coordinators", "/#faq"];
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
+  { label: "Data Deletion", href: "/data-deletion" },
   { label: "Supplier Data Notice", href: "/supplier-data-notice" },
 ];
 
@@ -20,7 +21,7 @@ export default function Footer() {
         {/* Top Row: Brand, Nav & Contact */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <Link href="#" className="relative w-24 h-12 block">
+            <Link href="/" className="relative w-24 h-12 block">
               <Image 
                 src="/plano-w.svg" 
                 alt="PlanO — AI Event Planning for Filipino Coordinators" 
