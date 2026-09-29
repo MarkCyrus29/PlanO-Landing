@@ -129,7 +129,7 @@ export default function PrivacyPage() {
                   1. Who we are
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  This Privacy Policy explains how <strong>PlanO Events, a sole proprietorship in Lipa City, Philippines [DTI registration in progress]</strong> (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) handles personal information, in line with the Data Privacy Act of 2012 (RA 10173), its Implementing Rules and Regulations, and issuances of the National Privacy Commission (NPC).
+                  This Privacy Policy explains how <strong>PlanO Events, a sole proprietorship in Lipa City, Philippines</strong> (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) handles personal information, in line with the Data Privacy Act of 2012 (RA 10173), its Implementing Rules and Regulations, and issuances of the National Privacy Commission (NPC).
                 </p>
                 <div className="p-4 rounded-xl bg-surface border border-border inline-block font-sans text-xs sm:text-sm text-ink">
                   <strong>Data Protection Officer:</strong>{" "}

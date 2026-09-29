@@ -83,7 +83,7 @@ export default function TermsPage() {
                   1. Agreement to these Terms
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  These Terms of Service (&ldquo;Terms&rdquo;) are a binding agreement between you (&ldquo;you,&rdquo; &ldquo;your,&rdquo; or &ldquo;Coordinator&rdquo;) and <strong>PlanO Events, a sole proprietorship in Lipa City, Philippines [DTI registration in progress]</strong> (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+                  These Terms of Service (&ldquo;Terms&rdquo;) are a binding agreement between you (&ldquo;you,&rdquo; &ldquo;your,&rdquo; or &ldquo;Coordinator&rdquo;) and <strong>PlanO Events, a sole proprietorship in Lipa City, Philippines </strong> (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
                 </p>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
                   By checking the &ldquo;I agree&rdquo; box, clicking &ldquo;Create account,&rdquo; or otherwise accessing or using the PlanO platform (the &ldquo;Service&rdquo;), you confirm that you have read, understood, and agree to be bound by these Terms and by our{" "}
@@ -369,7 +369,7 @@ export default function TermsPage() {
                 </h2>
                 <div className="p-6 rounded-2xl bg-surface border border-border space-y-2 font-sans text-sm text-ink-secondary">
                   <p className="font-semibold text-ink text-base">PlanO Events</p>
-                  <p>[Registered address, Lipa City, Philippines]</p>
+                  <p>Lipa City, Philippines</p>
                   <p>
                     Email:{" "}
                     <a href="mailto:info@planoevents.site" className="text-primary hover:underline">
