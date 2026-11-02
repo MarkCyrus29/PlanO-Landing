@@ -18,6 +18,7 @@ const tableOfContents = [
   { id: "two-layers", label: "What we hold — two layers" },
   { id: "publicly-listed", label: "Becoming publicly listed" },
   { id: "your-choices", label: "See it, fix it, or remove it" },
+  { id: "removal", label: "If you want your information removed" },
   { id: "lawful-basis", label: "Why we are allowed to hold this" },
   { id: "your-rights", label: "Your rights under the law" },
   { id: "who-we-are", label: "Who we are" },
@@ -45,7 +46,7 @@ export default function SupplierDataNoticePage() {
           <div className="mb-12 border-b border-border/80 pb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-light border border-primary/20 text-primary-dark font-sans text-xs font-medium mb-3">
               <Users size={13} className="text-primary" />
-              <span>Supplier Data Notice · Version 0.7 · RA 10173</span>
+              <span>Supplier Data Notice · Version 1.2 · Last updated November 1, 2026</span>
             </div>
             <h1 className="font-display text-3xl sm:text-5xl text-ink font-light tracking-tight mb-4">
               PlanO — Supplier Data Notice
@@ -68,7 +69,7 @@ export default function SupplierDataNoticePage() {
                   PlanO is a workflow tool used by professional event coordinators in the Philippines. Coordinators keep private records of the suppliers they trust and work with. When several coordinators independently reference the same supplier, we may send that supplier a one-time email invitation to claim a profile on PlanO.
                 </p>
                 <div className="p-5 rounded-xl bg-primary-light/40 border border-primary/20 font-sans text-sm sm:text-base text-ink leading-relaxed">
-                  <strong>If you received that invitation, it means multiple coordinators have referenced you as someone they work with.</strong> We do not tell you which coordinators, and we never share their rates, their clients, or anything from their private workspaces.
+                  <strong>If you received that invitation, it means multiple coordinators have referenced you as someone they work with.</strong> The invitation tells you how many. Once you claim your profile, you can see which coordinators added you. We never share their rates, their clients, or anything from their private workspaces.
                 </div>
               </section>
 
@@ -127,7 +128,7 @@ export default function SupplierDataNoticePage() {
                     {
                       icon: <BadgeCheck size={16} className="text-primary shrink-0 mt-0.5" />,
                       label: "Verify",
-                      text: "Public listing needs a simple identity check (a business document or government ID, plus phone or GCash) so coordinators know you\u2019re really you. We use it only to confirm your identity.",
+                      text: "Public listing needs a simple identity check (a business document or government ID, plus phone or GCash) so coordinators know you\u2019re really you. We use it only to confirm your identity. We delete the document as soon as the check is done and keep only the result and the date.",
                     },
                     {
                       icon: <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />,
@@ -160,7 +161,7 @@ export default function SupplierDataNoticePage() {
 
                 <ul className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    <strong className="text-ink">Claim your profile.</strong> If you received an invitation, you can claim your profile through it, see exactly what&rsquo;s on file, and correct anything. You can also create your own PlanO supplier account and manage your profile directly.
+                    <strong className="text-ink">Claim your profile.</strong> If you received an invitation, you can claim your profile through it, see exactly what&rsquo;s on file, see which coordinators added you, and correct anything. You can also create your own PlanO supplier account and manage your profile directly.
                   </li>
                   <li>
                     <strong className="text-ink">Join directly.</strong> You don&rsquo;t have to wait for an invitation. You can sign up as a supplier from our website whenever you&rsquo;d like.
@@ -172,7 +173,7 @@ export default function SupplierDataNoticePage() {
                     <strong className="text-ink">Correct it.</strong> Tell us about anything that&rsquo;s wrong or outdated and we&rsquo;ll fix it. Because the shared layer is community-contributed, correcting it is exactly what claiming is for.
                   </li>
                   <li>
-                    <strong className="text-ink">Opt out or delete.</strong> Simply reply to our email, or contact us below, and we&rsquo;ll stop contacting you, remove your profile, or both — whatever you ask. We honor these requests promptly. (Where you ask us to delete personal identifiers, we remove them; general business facts already known in the market may remain as non-identifying information.)
+                    <strong className="text-ink">Opt out or delete.</strong> Contact us (details below) and we&rsquo;ll stop contacting you, remove your profile, or both, whatever you ask. The next section explains exactly what happens.
                   </li>
                 </ul>
 
@@ -182,6 +183,49 @@ export default function SupplierDataNoticePage() {
                     suppliers@planoevents.site
                   </a>
                   .
+                </div>
+              </section>
+
+              {/* Removal */}
+              <section id="removal" className="space-y-4">
+                <h2 className="font-display text-2xl font-normal text-ink">
+                  If you want your information removed
+                </h2>
+                <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
+                  You don&rsquo;t need a PlanO account, and you don&rsquo;t need to know which coordinators hold information about you.
+                </p>
+
+                <ol className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-decimal pl-5">
+                  <li>
+                    <strong className="text-ink">Ask.</strong> Reply to our invitation email, write to{" "}
+                    <a href="mailto:suppliers@planoevents.site" className="text-primary hover:underline">
+                      suppliers@planoevents.site
+                    </a>
+                    , or use the form at{" "}
+                    <Link href="/data-deletion" className="text-primary hover:underline">
+                      planoevents.site/data-deletion
+                    </Link>
+                    .
+                  </li>
+                  <li>
+                    <strong className="text-ink">We check it&rsquo;s you.</strong> We contact you using the details we hold for your business and ask you to confirm the request. If we hold none, we&rsquo;ll ask for a simple way to show the request comes from the business, such as a message from the business&rsquo;s own page. We don&rsquo;t ask for a government ID for this.
+                  </li>
+                  <li>
+                    <strong className="text-ink">We stop contacting you</strong> as soon as we verify the request.
+                  </li>
+                  <li>
+                    <strong className="text-ink">We delete your shared profile,</strong> including any verification document we still hold, within 30 days.
+                  </li>
+                  <li>
+                    <strong className="text-ink">We ask the coordinators who hold private notes about you to remove your personal details.</strong> They have 14 days. A coordinator you have actually worked with may keep their own business record (for example, a booking history they need for their own accounts) in their private workspace. If a coordinator doesn&rsquo;t respond, we remove your personal identifiers from their record ourselves. Whatever a coordinator keeps stays private: it is never shown to anyone else, never used to rebuild a shared profile, and never counted toward invitations.
+                  </li>
+                  <li>
+                    <strong className="text-ink">We keep only a minimal record that you opted out,</strong> just enough to recognize you so we don&rsquo;t add you back or contact you again, plus anonymous totals that cannot identify you.
+                  </li>
+                </ol>
+
+                <div className="p-4 rounded-xl bg-surface border border-border font-sans text-sm text-ink-secondary leading-relaxed">
+                  <strong className="text-ink">What we can&rsquo;t do:</strong> recall messages or documents a coordinator has already sent to their own clients or suppliers, or delete records held outside PlanO.
                 </div>
               </section>
 
@@ -254,10 +298,10 @@ export default function SupplierDataNoticePage() {
                   Who we are
                 </h2>
                 <div className="p-6 rounded-2xl bg-surface border border-border space-y-2 font-sans text-sm text-ink-secondary">
-                  <p className="font-semibold text-ink text-base">PlanO Events</p>
-                  <p>Lipa City, Philippines</p>
+                  <p className="font-semibold text-ink text-base">PLANOEVENTS INFORMATION TECHNOLOGY SOLUTIONS (PlanO Events)</p>
+                  <p>Lipa City, Batangas, Philippines</p>
                   <p>
-                    Data privacy:{" "}
+                    Data privacy matters:{" "}
                     <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
                       privacy@planoevents.site
                     </a>

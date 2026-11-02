@@ -63,11 +63,11 @@ export default function TermsPage() {
               PlanO — Terms of Service
             </h1>
             <div className="flex flex-wrap items-center gap-3 font-sans text-xs text-ink-tertiary">
-              <span>Sole Proprietorship · Lipa City, Philippines</span>
+              <span>Sole Proprietorship · Lipa City, Batangas, Philippines</span>
               <span>•</span>
               <span>Contact: <a href="mailto:info@planoevents.site" className="text-primary hover:underline">info@planoevents.site</a></span>
               <span>•</span>
-              <span>Effective: Pre-launch 2026</span>
+              <span>Last updated: November 1, 2026</span>
             </div>
           </div>
 
@@ -83,7 +83,7 @@ export default function TermsPage() {
                   1. Agreement to these Terms
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  These Terms of Service (&ldquo;Terms&rdquo;) are a binding agreement between you (&ldquo;you,&rdquo; &ldquo;your,&rdquo; or &ldquo;Coordinator&rdquo;) and <strong>PlanO Events, a sole proprietorship in Lipa City, Philippines </strong> (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+                  These Terms of Service (&ldquo;Terms&rdquo;) are a binding agreement between you (&ldquo;you,&rdquo; &ldquo;your,&rdquo; or &ldquo;Coordinator&rdquo;) and <strong>PLANOEVENTS INFORMATION TECHNOLOGY SOLUTIONS</strong>, a sole proprietorship registered with the Department of Trade and Industry and based in Lipa City, Batangas, Philippines, which operates PlanO under the brand PlanO Events (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
                 </p>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
                   By checking the &ldquo;I agree&rdquo; box, clicking &ldquo;Create account,&rdquo; or otherwise accessing or using the PlanO platform (the &ldquo;Service&rdquo;), you confirm that you have read, understood, and agree to be bound by these Terms and by our{" "}
@@ -103,7 +103,7 @@ export default function TermsPage() {
                   2. The Service
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  PlanO is a software platform that helps professional event coordinators in the Philippines capture, structure, and manage client inquiries and supplier information, including AI-assisted extraction of structured event briefs, AI-assisted drafting of quotes and replies, and optional scheduling of discovery calls. The specific features available depend on your subscription tier.
+                  PlanO is a software platform that helps professional event coordinators in the Philippines capture, structure, and manage client inquiries and supplier information, including AI-assisted extraction of structured event briefs, AI-assisted drafting of quotes and replies, automated replies to client messages (on plans that include them), and optional scheduling of discovery calls. The specific features available depend on your subscription tier.
                 </p>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
                   We may change, add, or remove features over time. We will give reasonable notice of material changes that reduce core functionality.
@@ -140,10 +140,10 @@ export default function TermsPage() {
                     <strong className="text-ink">a.</strong> You have the right and a lawful basis under the Data Privacy Act of 2012 (RA 10173) to collect that Customer Data and to input it into the Service for processing;
                   </li>
                   <li>
-                    <strong className="text-ink">b.</strong> You have given the necessary notices to, and obtained the necessary consent from, your clients and other data subjects for their information to be processed by a service provider like PlanO. You acknowledge that event details ordinarily include <strong>sensitive personal information</strong> under RA 10173 §3(l) — marital status, age, and religious affiliation are all sensitive categories, and event details may reference minors — and that for sensitive personal information the law requires consent that is specific to the purpose and obtained before processing. PlanO supplies ready-made notice and consent wording inside the intake and brief flow; using it is how you meet this obligation in practice.
+                    <strong className="text-ink">b.</strong> You have given the necessary notices to, and obtained the necessary consent from, your clients and other data subjects for their information to be processed by a service provider like PlanO. You acknowledge that event details ordinarily include <strong>sensitive personal information</strong> under RA 10173 §3(l) — marital status, age, and religious affiliation are all sensitive categories, and event details may reference minors — and that for sensitive personal information the law requires consent that is specific to the purpose and obtained before processing. You acknowledge this obligation during onboarding, and PlanO records your acknowledgment and its date.
                   </li>
                   <li>
-                    <strong className="text-ink">c.</strong> You are entitled to share the supplier information you input. PlanO holds it in two layers (see the Privacy Policy and Supplier Data Notice): a shared layer of business facts (name, category, service area, reference pricing) and a private layer that is yours alone (your negotiated rate, notes, booking history). Your private layer is never shown to other coordinators, and a supplier&rsquo;s profile is not discoverable by coordinators who did not add them until the supplier claims and lists it. You confirm you have a genuine working relationship with each supplier you add, and suppliers may review, correct, or delete their information;
+                    <strong className="text-ink">c.</strong> You are entitled to share the supplier information you input. PlanO holds it in two layers (see the Privacy Policy and Supplier Data Notice): a shared layer of business facts (name, category, service area, reference pricing) and a private layer that is yours alone (your negotiated rate, notes, booking history). Your private layer is never shown to other coordinators, and a supplier&rsquo;s profile is not discoverable by coordinators who did not add them until the supplier claims and lists it. A supplier who claims their profile can see which coordinators added them, but never your negotiated rate, notes, or booking history. You confirm you have a genuine working relationship with each supplier you add, and suppliers may review, correct, or delete their information;
                   </li>
                   <li>
                     <strong className="text-ink">d.</strong> You will use the Service in compliance with all applicable Philippine laws.
@@ -158,7 +158,7 @@ export default function TermsPage() {
                     4e. Supplier account holders
                   </h3>
                   <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                    A supplier may hold their own PlanO account, by claiming a coordinator-created profile or signing up directly, and agrees to these Terms as they apply to suppliers. Before public listing, the supplier verifies their identity (a business document or government ID plus phone/GCash), which PlanO collects only to confirm identity and protect coordinators from impostors. PlanO is the controller for the shared business-facts layer and the coordinator&rsquo;s processor for the private layer. Public listing requires the supplier to claim, verify, and opt in.
+                    A supplier may hold their own PlanO account, by claiming a coordinator-created profile or signing up directly, and agrees to these Terms as they apply to suppliers. Before public listing, the supplier verifies their identity (a business document or government ID plus phone/GCash), which PlanO collects only to confirm identity and protect coordinators from impostors, and deletes as soon as the check is complete, keeping only the result and the date. PlanO is the controller for the shared business-facts layer and the coordinator&rsquo;s processor for the private layer. Public listing requires the supplier to claim, verify, and opt in.
                   </p>
                 </div>
 
@@ -179,7 +179,7 @@ export default function TermsPage() {
                         <strong className="text-ink">ii. Scope and instructions.</strong> PlanO processes Customer Data only to provide the Service and only on your instructions, which are given through your use of the Service and these Terms. We do not process Customer Data for our own purposes, and we do not use your Customer Data or your tie-up rates to train models, build public datasets, or generate revenue from anyone but you.
                       </p>
                       <p>
-                        <strong className="text-ink">iii. Confidentiality.</strong> Everyone with access to Customer Data is bound by confidentiality. Staff access occurs only where strictly necessary for maintenance, security, debugging, or migration, as described in the Privacy Policy.
+                        <strong className="text-ink">iii. Confidentiality.</strong> Everyone with access to Customer Data is bound by confidentiality. Staff access occurs only where strictly necessary for maintenance, security, debugging, or migration, or to carry out a privacy or deletion request, as described in the Privacy Policy.
                       </p>
                       <p>
                         <strong className="text-ink">iv. Security.</strong> PlanO maintains reasonable technical and organisational measures appropriate to the risk, including access controls and encryption in transit, as described in the Privacy Policy §13.
@@ -188,13 +188,17 @@ export default function TermsPage() {
                         <strong className="text-ink">v. Sub-processors.</strong> PlanO engages the sub-processors listed in the Privacy Policy §6 (AI, hosting, payments, and the integrations you connect). Each is bound by terms no less protective than these. We will give reasonable notice before adding or replacing a sub-processor that processes Customer Data, and you may terminate if you object.
                       </p>
                       <p>
-                        <strong className="text-ink">vi. Assisting you with data subject requests.</strong> If your client or supplier contacts you to access, correct, object to, or delete their information, PlanO will provide reasonable assistance and the tooling to act on it. If they contact us directly about data in your workspace, we will direct them to you and notify you.
+                        <strong className="text-ink">vi. Assisting you with data subject requests.</strong> If your client or supplier contacts you to access, correct, object to, or delete their information, PlanO will provide reasonable assistance and the tooling to act on it. If a client contacts us directly about data in your workspace, we will direct them to you and notify you. If a supplier asks PlanO to remove their information, PlanO will verify the request, remove the shared-layer record itself, and, if you hold a private record about that supplier, notify you in the app or by email. Within 14 days of that notice you must either remove the supplier&rsquo;s personal details from your record, or confirm that you have a genuine working relationship with the supplier and need the record for your own business purposes (in which case it stays private to your workspace and is not used for any shared, discovery, or aggregate purpose). If you do not respond within 14 days, you authorize PlanO to remove the supplier&rsquo;s personal identifiers from your record.
                       </p>
                       <p>
                         <strong className="text-ink">vii. Breach notification.</strong> PlanO will notify you without undue delay after becoming aware of a personal data breach affecting your Customer Data, with the information you reasonably need to meet your own obligations to affected data subjects and to the National Privacy Commission.
                       </p>
                       <p>
-                        <strong className="text-ink">viii. Return and deletion.</strong> On termination you may export your Customer Data. We delete or return it within the period stated in the Privacy Policy §10, except where law requires longer retention.
+                        <strong className="text-ink">viii. Return and deletion.</strong> On termination we delete your Customer Data within the period stated in the Privacy Policy §10, except where law requires longer retention. If you want a copy of your Customer Data, you can request one at{" "}
+                        <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
+                          privacy@planoevents.site
+                        </a>{" "}
+                        before you close your account, as described in the Privacy Policy §8.
                       </p>
                       <p>
                         <strong className="text-ink">ix. Records and cooperation.</strong> PlanO maintains records of its processing and will cooperate reasonably with a lawful NPC inquiry or with your own reasonable compliance review, subject to confidentiality and to the security of other coordinators&rsquo; data.
@@ -214,18 +218,24 @@ export default function TermsPage() {
                 </h2>
                 <div className="p-4 rounded-xl bg-amber-light/40 border border-secondary/30 font-sans text-sm text-ink-secondary leading-relaxed">
                   <p className="text-ink font-medium mb-1">
-                    PlanO uses artificial intelligence to extract, summarize, suggest, and draft content. AI output can be incomplete, inaccurate, or wrong.
+                    PlanO uses artificial intelligence to extract, summarize, suggest, draft, and (on plans that include it) send content. AI output can be incomplete, inaccurate, or wrong.
                   </p>
                 </div>
                 <ul className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    <strong className="text-ink">a. AI output is a draft, not a decision.</strong> You are solely responsible for reviewing, verifying, and approving any AI-generated brief, quote, price, reply, or recommendation before relying on or acting on it, and before any of it is sent to a client or supplier.
+                    <strong className="text-ink">a. Drafts are drafts.</strong> Where a feature produces a draft (such as a brief, a quote, or a suggested reply that you send yourself), you are solely responsible for reviewing, verifying, and approving it before relying on it or sending it to a client or supplier.
                   </li>
                   <li>
-                    <strong className="text-ink">b.</strong> PlanO does not guarantee the accuracy, completeness, or fitness for any purpose of AI output.
+                    <strong className="text-ink">b. Automated replies.</strong> On plans that include automated replies, if you turn the feature on, PlanO sends AI-generated replies to your clients&rsquo; messages on your behalf without you reviewing each one. You decide whether to turn it on, and you can turn it off at any time. You can also take over any conversation and reply yourself. You are responsible for those messages as if you had written them, including anything they say about availability, prices, or commitments.
                   </li>
                   <li>
-                    <strong className="text-ink">c.</strong> PlanO is a workflow tool. It does not provide professional, legal, financial, or pricing advice, and it does not make commitments to your clients on your behalf.
+                    <strong className="text-ink">c. Disclosure and human contact.</strong> You are responsible for complying with rules that apply to automated messaging with your clients, including any requirement to tell people they are interacting with an automated service, and platform rules such as Meta&rsquo;s, which require that people can reach a human.
+                  </li>
+                  <li>
+                    <strong className="text-ink">d.</strong> PlanO does not guarantee the accuracy, completeness, or fitness for any purpose of AI output.
+                  </li>
+                  <li>
+                    <strong className="text-ink">e.</strong> PlanO is a workflow tool. It does not provide professional, legal, financial, or pricing advice. PlanO does not itself make commitments to your clients. Anything sent through the Service, including by automated replies you enable, is sent on your behalf and under your responsibility.
                   </li>
                 </ul>
               </section>
@@ -246,14 +256,39 @@ export default function TermsPage() {
                   7. Third-party services
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  The Service integrates with third parties, including Meta (Facebook/Instagram messaging), Google (Calendar, optional; and our AI provider), AI model providers, hosting providers, and our payment gateway. Your use of those integrations is also subject to the third parties&rsquo; own terms.
+                  The Service integrates with third parties, including Meta (Facebook/Instagram messaging), Google (Calendar, optional; Maps; and our AI provider), AI model providers, hosting providers, and our payment gateway. Your use of those integrations is also subject to the third parties&rsquo; own terms.
                 </p>
                 <ul className="space-y-2.5 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    When you connect a Meta account, you authorize PlanO to access and process message data from that account solely to provide the Service to you.
+                    When you connect a Meta account, you authorize PlanO to access and process message data from that account and, if you turn on automated replies, to send replies from that account on your behalf, solely to provide the Service to you.
                   </li>
                   <li>
-                    When you optionally connect Google Calendar, you authorize PlanO to read your availability and create calendar events for booked calls, solely to provide the scheduling feature. PlanO&rsquo;s use of Google data follows the Google API Services User Data Policy, including its Limited Use requirements, as described in our Privacy Policy.
+                    When you optionally connect Google Calendar, you authorize PlanO to see when you are free or busy and to create, update, and remove events on calendars you own for the discovery calls you book (including adding a video-call link and inviting the participants you confirm), solely to provide the scheduling feature. PlanO&rsquo;s use of Google data follows the Google API Services User Data Policy, including its Limited Use requirements, as described in our{" "}
+                    <Link href="/privacy#sub-processors" className="text-primary hover:underline">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </li>
+                  <li>
+                    PlanO&rsquo;s location and mapping features use Google Maps. By using them, you agree to the{" "}
+                    <a
+                      href="https://www.google.com/help/terms_maps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Google Maps Additional Terms of Service
+                    </a>{" "}
+                    and the{" "}
+                    <a
+                      href="https://policies.google.com/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Google Terms of Service
+                    </a>
+                    .
                   </li>
                 </ul>
                 <p className="font-sans text-sm sm:text-base text-ink font-medium">
@@ -267,7 +302,7 @@ export default function TermsPage() {
                   8. Subscriptions, billing, and payments
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  Paid tiers are billed by PlanO directly, using <strong>PayMongo</strong> as our payment gateway to process payments (for example, card and GCash). <strong>PlanO is the seller of record.</strong> Prices are stated in PHP and are exclusive of applicable taxes as indicated at checkout, and PlanO issues the corresponding official receipt or invoice as required under Philippine law. Billing, renewal, refunds, and cancellation follow the process presented at checkout and described in this Section. Your use of the payment feature is also subject to PayMongo&rsquo;s applicable terms. Founding/CAB rates, where offered, are governed by your separate CAB Membership Agreement.
+                  Paid tiers are billed by PlanO directly, using <strong>PayMongo</strong> as our payment gateway to process payments (for example, card and GCash). <strong>PlanO is the seller of record.</strong> Prices are stated in PHP. The price shown at checkout is the price you pay, with no tax added, and PlanO issues the corresponding official receipt or invoice as required under Philippine law. Billing, renewal, refunds, and cancellation follow the process presented at checkout. Your use of the payment feature is also subject to PayMongo&rsquo;s applicable terms.
                 </p>
 
                 <div id="invoicing-tax" className="pt-4 space-y-4">
@@ -275,10 +310,10 @@ export default function TermsPage() {
                     8a. Invoicing and your tax details
                   </h3>
                   <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                    PlanO issues a BIR-registered service invoice for each subscription payment. If you need that invoice to carry your business details so your accountant can book the subscription as a business expense, you may optionally provide your registered business name, TIN, registered business address, and a finance email in your billing profile. By providing them you confirm you are authorised to do so and consent to their use solely for issuing and recording your invoices, as described in the Privacy Policy §2g.
+                    PlanO issues a BIR-registered service invoice for each subscription payment. If you need that invoice to carry your business details so your accountant can book the subscription as a business expense, you may optionally provide your registered business name, TIN, registered business address, and a finance email, either when you set up your account or later in your billing settings. By providing them you confirm you are authorised to do so and consent to their use solely for issuing and recording your invoices, as described in the Privacy Policy §2e.
                   </p>
                   <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                    You are responsible for the accuracy of these details. We issue invoices from what you give us, and a corrected invoice can only be issued in line with BIR rules. Invoices may be delivered as a scanned or electronic copy; the registered invoice is the compliance document regardless of how it reaches you. Because tax law requires us to keep issued invoices and supporting records, you can remove your billing details from future invoices at any time, but invoices already issued cannot be deleted (Privacy Policy §10).
+                    You are responsible for the accuracy of these details. We issue invoices from what you give us, and a corrected invoice can only be issued in line with BIR rules. We email you a scanned copy of each invoice. If you need the original, we mail it to you on request. Because tax law requires us to keep issued invoices and supporting records, you can remove your billing details from future invoices at any time, but invoices already issued cannot be deleted (Privacy Policy §10).
                   </p>
                 </div>
               </section>
@@ -289,7 +324,7 @@ export default function TermsPage() {
                   9. Intellectual property
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  PlanO and its software, design, and content are owned by us and protected under the Intellectual Property Code of the Philippines (RA 8293) and other laws. We grant you a limited, non-exclusive, non-transferable, revocable license to use the Service during your subscription. You retain all rights to your Customer Data. You grant us a limited license to host and process your Customer Data only to provide and improve the Service, consistent with our Privacy Policy.
+                  PlanO and its software, design, and content are owned by us and protected under the Intellectual Property Code of the Philippines (RA 8293) and other laws. We grant you a limited, non-exclusive, non-transferable, revocable license to use the Service during your subscription. You retain all rights to your Customer Data. You grant us a limited license to host and process your Customer Data only to provide the Service (and to improve it using only de-identified patterns, as described in our Privacy Policy).
                 </p>
 
                 <div id="ai-ownership" className="pt-4 space-y-4">
@@ -368,8 +403,8 @@ export default function TermsPage() {
                   16. Contact
                 </h2>
                 <div className="p-6 rounded-2xl bg-surface border border-border space-y-2 font-sans text-sm text-ink-secondary">
-                  <p className="font-semibold text-ink text-base">PlanO Events</p>
-                  <p>Lipa City, Philippines</p>
+                  <p className="font-semibold text-ink text-base">PLANOEVENTS INFORMATION TECHNOLOGY SOLUTIONS (PlanO Events)</p>
+                  <p>Lipa City, Batangas, Philippines</p>
                   <p>
                     Email:{" "}
                     <a href="mailto:info@planoevents.site" className="text-primary hover:underline">
@@ -377,7 +412,13 @@ export default function TermsPage() {
                     </a>
                   </p>
                   <p>
-                    Data privacy matters:{" "}
+                    Data privacy requests:{" "}
+                    <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
+                      privacy@planoevents.site
+                    </a>
+                  </p>
+                  <p>
+                    Data Protection Officer:{" "}
                     <a href="mailto:dpo@planoevents.site" className="text-primary hover:underline">
                       dpo@planoevents.site
                     </a>

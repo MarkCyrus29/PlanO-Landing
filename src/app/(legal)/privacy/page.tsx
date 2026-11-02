@@ -65,7 +65,7 @@ export default function PrivacyPage() {
               <span>•</span>
               <span>DPO: <a href="mailto:dpo@planoevents.site" className="text-primary hover:underline">dpo@planoevents.site</a></span>
               <span>•</span>
-              <span>Effective: Pre-launch 2026</span>
+              <span>Last updated: November 1, 2026</span>
             </div>
           </div>
 
@@ -96,12 +96,12 @@ export default function PrivacyPage() {
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 size={18} className="text-primary mt-1 shrink-0" />
                     <span>
-                      Your private supplier list, your tie-up rates, and who&rsquo;s in your workspace stay <strong>visible only to you</strong>. Our staff do not access or use your tie-up rates.
+                      Your tie-up rates, notes, and booking history stay <strong>visible only to you</strong>, and your supplier list is never shown to other coordinators or to your clients. A supplier who claims their profile can see which coordinators added them. Our staff do not access or use your tie-up rates.
                     </span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 size={18} className="text-primary mt-1 shrink-0" />
-                    <span>Our AI runs on Google&rsquo;s paid enterprise tier — your data is never used to train Google&rsquo;s models.</span>
+                    <span>Our AI runs on Google Cloud (Vertex AI), and your data is never used to train Google&rsquo;s models.</span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 size={18} className="text-primary mt-1 shrink-0" />
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 size={18} className="text-primary mt-1 shrink-0" />
                     <span>
-                      Event details often include information the law treats as sensitive, so your client&rsquo;s consent matters — and we give you the wording to collect it, so you don&rsquo;t have to write it yourself.
+                      Event details often include information the law treats as sensitive, so you are responsible for your client&rsquo;s consent, and you confirm that when you set up your account.
                     </span>
                   </div>
                   <div className="flex items-start gap-2.5">
@@ -129,7 +129,7 @@ export default function PrivacyPage() {
                   1. Who we are
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  This Privacy Policy explains how <strong>PlanO Events, a sole proprietorship in Lipa City, Philippines</strong> (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) handles personal information, in line with the Data Privacy Act of 2012 (RA 10173), its Implementing Rules and Regulations, and issuances of the National Privacy Commission (NPC).
+                  This Privacy Policy explains how <strong>PLANOEVENTS INFORMATION TECHNOLOGY SOLUTIONS</strong>, a sole proprietorship registered with the Department of Trade and Industry and based in Lipa City, Batangas, Philippines, which operates PlanO under the brand PlanO Events (&ldquo;PlanO,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;), handles personal information, in line with the Data Privacy Act of 2012 (RA 10173), its Implementing Rules and Regulations, and issuances of the National Privacy Commission (NPC).
                 </p>
                 <div className="p-4 rounded-xl bg-surface border border-border inline-block font-sans text-xs sm:text-sm text-ink">
                   <strong>Data Protection Officer:</strong>{" "}
@@ -155,19 +155,34 @@ export default function PrivacyPage() {
                     <strong className="text-ink font-semibold">c. Onboarding and usage information.</strong> During setup we may collect operational details about your business (for example, events per week, busy and slow months, typical inquiry volume) and how you use the Service. Some of this is stored for our internal product and analytics purposes to improve PlanO and is not necessarily displayed back to you.
                   </p>
                   <p>
-                    <strong className="text-ink font-semibold">c-1. Incomplete signup information.</strong> If you begin creating an account but do not complete payment, we keep the account details you entered (such as your name and email) in a pending state so you can return and finish, and so we can send you a reminder to complete signup. See Sections 3 and 5b.
+                    <strong className="text-ink font-semibold">d. Incomplete signup information.</strong> If you begin creating an account but do not complete payment, we keep the account details you entered (such as your name and email) in a pending state so you can return and finish, and so we can send you a reminder to complete signup. See Sections 3 and 5b.
                   </p>
                   <p>
-                    <strong className="text-ink font-semibold">g. Tax and invoicing details (optional).</strong> If you want a BIR-compliant service invoice for your subscription, you can give us your registered business name, Taxpayer Identification Number (TIN), registered business address, and a finance or accounts-payable email. Providing these is entirely optional — the Service works without them — and we use them <strong>only</strong> to prepare, issue, and keep records of your invoices. We do not use them for marketing, profiling, or any other purpose. If you are a sole proprietor, note that your TIN and registered details are also personal information about you, and they are held under the same protections as everything else in this Policy. See §10 for how long invoicing records are kept.
+                    <strong className="text-ink font-semibold">e. Tax and invoicing details (optional).</strong> If you want a BIR-compliant service invoice for your subscription, you can enter your registered business name, Taxpayer Identification Number (TIN), registered business address, and a finance or accounts-payable email, either when you set up your account or later in your billing settings. Providing these is entirely optional — the Service works without them — and we use them <strong>only</strong> to prepare, issue, and keep records of your invoices. We do not use them for marketing, profiling, or any other purpose. If you are a sole proprietor, note that your TIN and registered details are also personal information about you, and they are held under the same protections as everything else in this Policy. See §10 for how long invoicing records are kept.
                   </p>
                   <p>
-                    <strong className="text-ink font-semibold">d. Customer Data you provide.</strong> As a coordinator, you input information to run your workflow, including the personal information of your own clients and suppliers (names, contact details, message contents, event details, supplier categories, and pricing). For this information, <strong>you are the controller and PlanO is your processor</strong> — we process it on your instructions to provide the Service.
+                    <strong className="text-ink font-semibold">f. Customer Data you provide.</strong> As a coordinator, you input information to run your workflow, including the personal information of your own clients and suppliers (names, contact details, message contents, event details, supplier categories, and pricing). For this information, <strong>you are the controller and PlanO is your processor</strong> — we process it on your instructions to provide the Service.
                   </p>
                   <p>
-                    <strong className="text-ink font-semibold">e. Connected messaging data (Meta).</strong> If you connect a Meta (Facebook/Instagram) account, we access and process the message threads and related data you authorize, solely to provide the Service to you.
+                    <strong className="text-ink font-semibold">g. Connected messaging data (Meta).</strong> If you connect a Meta (Facebook/Instagram) account, we access and process the message threads and related data you authorize, and, if you turn on automated replies, send replies from your account on your behalf, solely to provide the Service to you.
                   </p>
                   <p>
-                    <strong className="text-ink font-semibold">f. Connected calendar data (Google) — optional.</strong> If you choose to connect Google Calendar, we access your calendar to read your availability and to write events for booked discovery calls. This integration is entirely optional. We request the minimum access needed and you can disconnect at any time. See Section 6a for how we handle Google user data.
+                    <strong className="text-ink font-semibold">h. Connected calendar data (Google) — optional.</strong> If you choose to connect Google Calendar, PlanO asks Google for two permissions only: to see when you are free or busy, and to manage events on calendars you own. We use the first to check your availability when a discovery call is being scheduled. We do not read the titles, attendees, or details of your events, and we do not store your availability; we check it only when it is needed. We use the second to create an event for each discovery call you book, add a video-call link, invite your client at the email address you confirm, update the event if the call is rescheduled, and remove it if the call is cancelled. PlanO only changes events it created. This integration is entirely optional. You can disconnect Google Calendar at any time in Settings. Disconnecting revokes PlanO&rsquo;s access and immediately deletes the Google-sourced data we hold: the stored access credentials and the links to events we created. Events PlanO already created on your calendar stay there, and the record of a discovery call in your PlanO workspace is part of your Customer Data (Section 10). You can also revoke PlanO&rsquo;s access from your Google Account&rsquo;s security settings. If Google access is revoked or expires, we stop using your calendar and ask you to reconnect. See Section 6b for how we handle Google user data and Section 11 for deletion.
+                  </p>
+                  <p>
+                    <strong className="text-ink font-semibold">i. Location and mapping data.</strong> To help you find venues and match nearby suppliers, PlanO uses Google Maps and Google Places for address search, pin placement, and distance calculations between a venue and your suppliers. This may involve sending address or location text you enter to Google to resolve it into map coordinates. We use this only to power these features within the Service. This feature uses Google Maps APIs. Google&rsquo;s handling of that information is covered by the{" "}
+                    <a
+                      href="https://policies.google.com/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Google Privacy Policy
+                    </a>
+                    , which is incorporated into this Policy by reference. When your client opens a client portal that shows the venue on a map, their browser loads Google Maps directly, so Google receives their IP address and the venue location. Map coordinates we obtain from Google are refreshed or deleted within 30 days; a pin you place on the map yourself is kept as part of your records.
+                  </p>
+                  <p>
+                    <strong className="text-ink font-semibold">j. Client portal data.</strong> If you enable the client portal for an inquiry, your client can use a private link to view their brief, leave feedback on proposals, suggest a vendor, and upload inspiration images (up to 5MB each, in standard image formats). You can set an expiration date on the link, and you can turn the portal off at any time, which stops the link from working. If you set no expiration date, the portal expires after 12 months of inactivity (no visit by your client and no activity by you on that portal), and we notify you in the app one month before that happens. When a portal expires, the link stops working and the portal is deleted, including everything submitted through it, such as your client&rsquo;s feedback, vendor suggestions, and uploaded images. Your own inquiry and brief are not affected.
                   </p>
                 </div>
               </section>
@@ -211,6 +226,10 @@ export default function PrivacyPage() {
                         <td className="py-3 px-4 sm:px-6">Performance of our contract with you</td>
                       </tr>
                       <tr>
+                        <td className="py-3 px-4 sm:px-6 text-ink">Verify a supplier&rsquo;s identity before public listing (Section 5a)</td>
+                        <td className="py-3 px-4 sm:px-6">The supplier&rsquo;s consent, given when they submit the document</td>
+                      </tr>
+                      <tr>
                         <td className="py-3 px-4 sm:px-6 text-ink">Secure the Service, prevent abuse</td>
                         <td className="py-3 px-4 sm:px-6">Our legitimate interests</td>
                       </tr>
@@ -231,7 +250,7 @@ export default function PrivacyPage() {
                         <td className="py-3 px-4 sm:px-6">Our legitimate interests</td>
                       </tr>
                       <tr>
-                        <td className="py-3 px-4 sm:px-6 text-ink">Collect your tax and invoicing details (§2g)</td>
+                        <td className="py-3 px-4 sm:px-6 text-ink">Collect your tax and invoicing details (§2e)</td>
                         <td className="py-3 px-4 sm:px-6">Your consent, given at the point you provide them</td>
                       </tr>
                       <tr>
@@ -268,13 +287,20 @@ export default function PrivacyPage() {
                 <p className="font-sans text-sm sm:text-base text-ink font-medium">How we handle this:</p>
                 <ul className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    <strong className="text-ink">You obtain the consent, not us.</strong> Your client is your client. As controller, you are responsible for informing them and obtaining their consent for their event details to be processed by a service provider like PlanO. Your Terms of Service §4b sets out this obligation.
+                    <strong className="text-ink">You obtain the consent, not us.</strong> Your client is your client. As controller, you are responsible for informing them and obtaining their consent for their event details to be processed by a service provider like PlanO. Your{" "}
+                    <Link href="/terms#customer-data" className="text-primary hover:underline">
+                      Terms of Service §4b
+                    </Link>{" "}
+                    sets out this obligation.
                   </li>
                   <li>
-                    <strong className="text-ink">We give you the wording.</strong> PlanO provides ready-made notice and consent text inside the intake and brief flow so you do not have to draft it. Using it is how you meet §4b in practice.
+                    <strong className="text-ink">You confirm this during onboarding.</strong> When you set up your account, you acknowledge that you are responsible for giving your clients the required notice and obtaining their consent before you enter their information into PlanO, including sensitive details such as age, marital status, religion, and information about minors. We record your acknowledgment and its date.
                   </li>
                   <li>
-                    <strong className="text-ink">We minimize what we hold.</strong> We do not store raw message threads beyond what is needed to produce and maintain your brief, and we keep only the fields the brief requires.
+                    <strong className="text-ink">Think of it this way.</strong> Whatever your clients share with you is your responsibility, whether it reaches you by Messenger, text, or inside PlanO. PlanO acts like a receptionist working for you: it takes in and organizes what your clients send, only to help you run your events, and it does not use that information for anything else.
+                  </li>
+                  <li>
+                    <strong className="text-ink">We keep what the Service needs to work.</strong> To power your inbox, brief history, and the client portal, we retain the full content of client messages and media (including images and voice notes) for as long as your account is active, or until you delete the related conversation or inquiry (content submitted through a client portal is deleted when the portal expires; see Section 2j), in the same way an ordinary messaging app keeps your chat history. We do not use this content for any purpose beyond providing the Service to you.
                   </li>
                   <li>
                     <strong className="text-ink">We never use it for our own purposes.</strong> Client event details are processed solely to provide the Service to you. They are not used for analytics, product training, or any purpose you have not instructed.
@@ -292,14 +318,14 @@ export default function PrivacyPage() {
                 </p>
                 <ul className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    <strong className="text-ink">Your private relational data</strong> — which suppliers you use, your negotiated tie-up rates, and who is in your workspace — is visible only to you within your workspace. It is not shared with other coordinators or with your clients, and we do not use it to identify you to anyone outside the platform.
+                    <strong className="text-ink">Your private relational data</strong> — which suppliers you use, your negotiated tie-up rates, and who is in your workspace — is visible only to you within your workspace. It is not shared with other coordinators or with your clients. The one exception is that a supplier who claims their profile can see which coordinators added them. A supplier never sees your negotiated rates, notes, or booking history.
                   </li>
                   <li>
                     <strong className="text-ink">De-identified, aggregate signals</strong> — for example, that a supplier category is referenced often across the network — may be used to improve discovery and platform quality in a way that never traces back to you or to your specific relationship with any supplier.
                   </li>
                 </ul>
                 <div className="p-4 rounded-xl bg-surface border border-primary/20 font-sans text-sm text-ink-secondary leading-relaxed">
-                  <strong className="text-ink">Your tie-up rates specifically.</strong> Your negotiated tie-up rates are stored within your workspace solely to power your own private view. Our staff do not access or use them in normal operations. Access may occur only where strictly necessary for maintenance, security, debugging, or data migration, by authorized personnel, and never to share, sell, or commercialize them.
+                  <strong className="text-ink">Your tie-up rates specifically.</strong> Your negotiated tie-up rates are stored within your workspace solely to power your own private view. Our staff do not access or use them in normal operations. Access may occur only where strictly necessary for maintenance, security, debugging, data migration, or carrying out a privacy or deletion request, by authorized personnel, and never to share, sell, or commercialize them.
                 </div>
               </section>
 
@@ -319,6 +345,9 @@ export default function PrivacyPage() {
                     <strong className="text-ink">Layer 2 — each coordinator&rsquo;s private record.</strong> A coordinator&rsquo;s negotiated rate, notes, and booking history. <strong>The coordinator is the controller and PlanO is their processor.</strong> It is visible only to that coordinator, never shown to others, and a negotiated rate is never placed on the shared layer.
                   </p>
                   <p>
+                    <strong className="text-ink">Who added a supplier.</strong> The fact that a coordinator added a supplier is not part of that private record. A supplier who claims their profile can see which coordinators added them. They never see those coordinators&rsquo; rates, notes, booking history, or clients.
+                  </p>
+                  <p>
                     Personal identifiers — a supplier&rsquo;s personal name, personal mobile, or personal social account — <strong>do not cross workspaces on the shared layer.</strong> They stay in the private layer, or wait for the supplier&rsquo;s own claim and consent.
                   </p>
                   <p>
@@ -329,7 +358,11 @@ export default function PrivacyPage() {
                   <li>An unclaimed profile is not public and not discoverable by coordinators who did not add the supplier. We do not show a supplier&rsquo;s logo before they claim it.</li>
                   <li>A profile becomes public only if the supplier claims it, verifies their identity, and opts in (Section 5a).</li>
                   <li>
-                    Suppliers can see, correct, object to, or delete their information whether or not they have claimed a profile. In the private phase, a request about one coordinator&rsquo;s private record goes to that coordinator; requests about the shared layer, and all requests after a claim, are handled by PlanO. See the Supplier Data Notice and Section 8.
+                    Suppliers can see, correct, object to, or delete their information whether or not they have claimed a profile. Suppliers send every request to PlanO and do not need to know which coordinators hold a record. PlanO deletes the shared layer itself. For a coordinator&rsquo;s private record, PlanO passes the request to the coordinator concerned. The coordinator then has 14 days to remove the supplier&rsquo;s personal details, or to confirm a genuine working relationship and keep their own private business record (for example, booking history they need for their own accounts). If the coordinator does not respond, PlanO removes the supplier&rsquo;s personal identifiers from the record. See Section 11, the{" "}
+                    <Link href="/supplier-data-notice" className="text-primary hover:underline">
+                      Supplier Data Notice
+                    </Link>
+                    , and Section 8.
                   </li>
                 </ul>
 
@@ -341,7 +374,7 @@ export default function PrivacyPage() {
                     Suppliers may hold their own PlanO account, whether they claim an existing profile or sign up directly.
                   </p>
                   <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                    Before a profile is publicly listed, the supplier completes an identity check — a business document or government ID, plus a phone or GCash confirmation. We use this only to confirm identity and protect coordinators from impostors.
+                    Before a profile is publicly listed, the supplier completes an identity check — a business document or government ID, plus a phone or GCash confirmation. We use this only to confirm identity and protect coordinators from impostors. We delete the document as soon as the check is complete and keep only the result (verified or not) and the date.
                   </p>
                 </div>
 
@@ -369,19 +402,22 @@ export default function PrivacyPage() {
                 </p>
                 <ul className="space-y-2.5 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    <strong className="text-ink">AI provider (Google)</strong> — our AI features run on Google&rsquo;s Gemini models through a single, paid Google Cloud project. See Section 6a for what this means for your data;
+                    <strong className="text-ink">AI provider (Google)</strong> — our AI features run on Google&rsquo;s Gemini models through Google Cloud&rsquo;s Vertex AI. See Section 6a for what this means for your data;
                   </li>
                   <li>
-                    <strong className="text-ink">Hosting/infrastructure</strong> (Vercel and our database provider) — to store and serve the Service;
+                    <strong className="text-ink">Hosting/infrastructure</strong> (Vercel, and our database and file-storage provider) — to store and serve the Service, including uploaded images and voice notes;
                   </li>
                   <li>
                     <strong className="text-ink">Payment</strong> (PayMongo, our payment gateway; PlanO is the seller of record) — to process subscription payments;
                   </li>
                   <li>
+                    <strong className="text-ink">Email delivery</strong> (Resend) — to send account, confirmation, reminder, and supplier invitation emails;
+                  </li>
+                  <li>
                     <strong className="text-ink">Meta</strong> — only as needed to operate the messaging integration you connect;
                   </li>
                   <li>
-                    <strong className="text-ink">Google</strong> — also used, separately, to operate the optional calendar integration you connect.
+                    <strong className="text-ink">Google</strong> — also used, separately, to operate the optional calendar integration you connect, and to operate Google Maps/Places for the location features described in Section 2i.
                   </li>
                 </ul>
                 <p className="font-sans text-sm sm:text-base text-ink font-medium">
@@ -393,7 +429,7 @@ export default function PrivacyPage() {
                     6a. AI provider — no training on your data
                   </h3>
                   <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                    PlanO runs its AI features on Google&rsquo;s paid enterprise tier under the Google Cloud Data Processing Addendum. Under those terms, your prompts and the data we process for you are <strong>not used to train Google&rsquo;s models</strong>, and we do not use any free or consumer-tier AI service anywhere in the Service. If we change AI providers or add another one, we will update this Policy and the sub-processor list in §6 before the change takes effect.
+                    PlanO runs its AI features on Google Cloud&rsquo;s Vertex AI, under the Google Cloud terms and the Google Cloud Data Processing Addendum. Under those terms, your prompts and the data we process for you are <strong>not used to train Google&rsquo;s models</strong>, and we do not use any consumer AI service anywhere in the Service. If we change AI providers or add another one, we will update this Policy and the sub-processor list in §6 before the change takes effect.
                   </p>
                 </div>
 
@@ -402,7 +438,25 @@ export default function PrivacyPage() {
                     6b. Google user data — Limited Use (Calendar)
                   </h3>
                   <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                    For the separate, optional Google Calendar integration, PlanO&rsquo;s use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including its Limited Use requirements. We use Google Calendar data only to provide the scheduling features you enable, we do not use it for advertising, we do not sell it, and we do not allow humans to read it except where you explicitly request support, where required for security or to comply with law, or in aggregated, de-identified form.
+                    For the separate, optional Google Calendar integration: PlanO&rsquo;s use and transfer to any other app of information received from Google APIs will adhere to the{" "}
+                    <a
+                      href="https://developers.google.com/terms/api-services-user-data-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Google API Services User Data Policy
+                    </a>
+                    , including the Limited Use requirements. We use Google Calendar data only to provide the scheduling features you enable, we do not use it for advertising, we do not sell it, and we do not allow humans to read it except where you explicitly request support, where required for security or to comply with law, or in aggregated, de-identified form.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
+                    <strong className="text-ink">Who receives Google Calendar data.</strong> We share it only as far as the scheduling feature needs: Google&rsquo;s AI service (Vertex AI, Section 6a) receives a suggested free time and whether a time is already taken, so the assistant can propose a meeting time; your client sees the proposed time in the replies sent from your Messenger or Instagram account; and the person you invite receives the calendar invitation that Google sends. We do not share Google Calendar data with anyone else, and we do not sell it.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
+                    <strong className="text-ink">No AI or machine-learning training.</strong> We do not use Google Calendar data, or anything derived from it, to develop, improve, or train generalized or non-personalized AI or machine-learning models, and we do not transfer it to anyone for that purpose.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
+                    <strong className="text-ink">How we protect it and how long we keep it.</strong> Google access credentials are encrypted when stored, can be used only by the parts of PlanO that run the scheduling feature, and travel only over encrypted connections. We do not store your availability. We keep the identifiers of events we created until you disconnect Google Calendar, delete the inquiry, or delete your account.
                   </p>
                 </div>
               </section>
@@ -417,7 +471,7 @@ export default function PrivacyPage() {
                 </p>
                 <ul className="space-y-2.5 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
                   <li>
-                    This invitation is <strong>coordinator-anonymized</strong>: it tells the supplier that several coordinators have referenced them, but it does not name which coordinators, and it never discloses any coordinator&rsquo;s rates, client details, or workspace contents. (The supplier is identified to themselves on their own profile; what stays hidden is the identity of the coordinators who vouched.)
+                    This invitation tells the supplier how many coordinators have added them. It does not name them, and it never discloses any coordinator&rsquo;s rates, client details, or workspace contents. A supplier who claims their profile can then see which coordinators added them.
                   </li>
                   <li>
                     We rely on our legitimate interest in connecting vouched-for professionals to a tool that benefits them, balanced against supplier rights.
@@ -452,7 +506,7 @@ export default function PrivacyPage() {
                   Some service providers process data outside the Philippines. Our AI provider does so under the Google Cloud Data Processing Addendum (Section 6a), which bars training on your data. Hosting and calendar providers process abroad under their own terms. For all cross-border transfers, we take the steps RA 10173 requires to ensure comparable protection, including contractual safeguards. By using the Service, you are informed of these transfers.
                 </p>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  <strong className="text-ink">Client event details cross the border too.</strong> Producing your brief means sending client message content to our AI provider outside the Philippines, and that content can include the sensitive categories described in §3a. We remain accountable for it under RA 10173 §21 wherever it is processed.
+                  <strong className="text-ink">Client event details cross the border too.</strong> Producing your brief means sending client messages, including any images or voice notes processed for the brief, to our AI provider outside the Philippines, and that content can include the sensitive categories described in §3a. We remain accountable for it under RA 10173 §21 wherever it is processed.
                 </p>
               </section>
 
@@ -462,14 +516,39 @@ export default function PrivacyPage() {
                   10. Data retention
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  We keep personal information only as long as needed for the purposes above or as required by law. Waitlist emails are kept until you ask us to delete them. Account and Customer Data are kept for the life of your account and deleted or returned within 30 days of account closure, except where law requires longer retention.
+                  We keep personal information only as long as needed for the purposes above or as required by law.
                 </p>
+                <ul className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
+                  <li>
+                    <strong className="text-ink">Waitlist emails</strong> are kept until you unsubscribe or ask us to delete them.
+                  </li>
+                  <li>
+                    <strong className="text-ink">Account and Customer Data</strong> are kept for the life of your account. If you delete a conversation or an inquiry, the messages and media attached to it (chat images, voice notes, client portal uploads) are deleted with it.
+                  </li>
+                  <li>
+                    <strong className="text-ink">Client portals</strong> expire as described in Section 2j, and everything submitted through a portal is deleted with it.
+                  </li>
+                  <li>
+                    <strong className="text-ink">Supplier verification documents</strong> are deleted as soon as the identity check is complete. We keep only the result and the date.
+                  </li>
+                  <li>
+                    <strong className="text-ink">When you close your account,</strong> your access ends as soon as we confirm your request. Within 30 days we delete your account records, including messages, conversations, inquiries, and all media you or your clients uploaded (such as chat images, voice notes, and client portal uploads), except where law requires longer retention. Deleted data may remain in our hosting provider&rsquo;s backups until they are overwritten in the normal backup cycle (no longer than 30 days after deletion). It is not accessed or used for any other purpose, and if we ever have to restore a backup after a system failure, we delete again what had already been deleted.
+                  </li>
+                  <li>
+                    <strong className="text-ink">What we keep after deletion:</strong> (1) issued invoices and their supporting records (see below); (2) a minimal suppression record for suppliers who asked not to be contacted or listed; and (3) a minimal deletion log, containing the date, internal account or record numbers, and the type of request, with no message, client, or supplier content, so that we can show a request was honored.
+                  </li>
+                </ul>
                 <div className="p-4 rounded-xl bg-surface border border-border font-sans text-sm text-ink-secondary leading-relaxed">
-                  <strong className="text-ink">Invoicing records.</strong> Once we have issued an invoice using your tax details, that invoice and its supporting records must be kept for the period Philippine tax law requires, which is generally ten years for books of account and supporting documents under BIR rules. This means that if you later withdraw your consent or ask us to delete your billing profile, we will stop using your details for any future invoice and remove them from your active billing profile, but we cannot delete invoices already issued — retaining those is a legal obligation, not a choice.
+                  <strong className="text-ink">Invoicing records.</strong> Once we have issued an invoice using your tax details, that invoice and its supporting records must be kept for the period Philippine tax law requires, which is generally ten years for books of account and supporting documents under BIR rules. This means that if you later withdraw your consent or ask us to delete your billing profile, we will stop using your details for any future invoice and remove them from your active billing profile, but we cannot delete invoices already issued. Retaining those is a legal obligation, not a choice.
                 </div>
-                <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  Unclaimed supplier profiles are deleted on a valid request from the supplier; after an opt-out we retain only a minimal suppression record so we do not re-contact them, and we may retain anonymized, aggregate signals that do not identify any individual.
-                </p>
+                <ul className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed list-disc pl-5">
+                  <li>
+                    <strong className="text-ink">Unclaimed supplier profiles</strong> are deleted on a valid request from the supplier (Section 11). After an opt-out we retain only a minimal suppression record so we do not re-contact them, and we may retain anonymized, aggregate signals that do not identify any individual.
+                  </li>
+                  <li>
+                    <strong className="text-ink">Incomplete signups</strong> are deleted after 90 days of inactivity (Section 5b).
+                  </li>
+                </ul>
               </section>
 
               {/* Section 11 */}
@@ -479,14 +558,7 @@ export default function PrivacyPage() {
                 </h2>
                 <div className="space-y-3 font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
                   <p>
-                    <strong className="text-ink">Account deletion:</strong> Request deletion of your account and associated personal information by emailing{" "}
-                    <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
-                      privacy@planoevents.site
-                    </a>{" "}
-                    or using the in-app deletion option.
-                  </p>
-                  <p>
-                    <strong className="text-ink">Meta data deletion:</strong> If you connected a Meta account, you can disconnect it in-app at any time. To request deletion of message data we processed, follow the instructions at{" "}
+                    <strong className="text-ink">Account deletion.</strong> You can request deletion from your account settings (entering your password or a one-time code), through the form at{" "}
                     <Link
                       href="/data-deletion"
                       className="text-primary font-medium hover:underline inline-flex items-center gap-1"
@@ -494,13 +566,69 @@ export default function PrivacyPage() {
                       planoevents.site/data-deletion
                       <ArrowUpRight size={13} />
                     </Link>
-                    .
-                  </p>
-                  <p>
-                    <strong className="text-ink">Google Calendar:</strong> You can disconnect Google Calendar in-app at any time, which stops further access. You may request deletion of any calendar-derived data we hold via{" "}
+                    , or by emailing{" "}
                     <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
                       privacy@planoevents.site
                     </a>
+                    . However you ask, we email the address on file and delete nothing until you reply to confirm. If you can no longer access that email, write to us and we will verify your identity another way. Once your request is confirmed, access to your account ends, your connected Google and Meta accounts are disconnected, future subscription charges stop, and your client portal links stop working. We complete deletion of your data within 30 days and email you when it is done. Section 10 lists the few records we must or may keep.
+                  </p>
+                  <p>
+                    <strong className="text-ink">Meta data.</strong> You can disconnect your Meta account in the app at any time. Disconnecting ends our access to your Meta account, but it does not by itself delete what we already hold, and neither does removing PlanO from your Facebook settings. To ask us to delete it, use the form at{" "}
+                    <Link
+                      href="/data-deletion"
+                      className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                    >
+                      planoevents.site/data-deletion
+                      <ArrowUpRight size={13} />
+                    </Link>{" "}
+                    or email{" "}
+                    <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
+                      privacy@planoevents.site
+                    </a>
+                    . We confirm the request by emailing the address on file, then delete the data we received through the connection (access tokens, imported conversations, messages, and media) within 30 days and email you when it is done. Briefs and inquiries you created in PlanO from those messages are your own records and stay until you delete them or your account.
+                  </p>
+                  <p>
+                    <strong className="text-ink">Google Calendar.</strong> You can disconnect Google Calendar in Settings at any time. This revokes PlanO&rsquo;s access and immediately deletes the stored access credentials and the links to events we created. You can also revoke access from your Google Account&rsquo;s security settings. Events PlanO already created on your calendar remain there. You may also ask for deletion of any calendar-derived data via{" "}
+                    <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
+                      privacy@planoevents.site
+                    </a>
+                    .
+                  </p>
+                  <p>
+                    <strong className="text-ink">Clients and guests.</strong> If you are a client or guest whose details a coordinator entered, write to{" "}
+                    <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
+                      privacy@planoevents.site
+                    </a>
+                    . The coordinator is the controller of that information, so we pass your request to them and help them act on it.
+                  </p>
+                  <p>
+                    <strong className="text-ink">Suppliers.</strong> Whether or not you have an account, write to{" "}
+                    <a href="mailto:suppliers@planoevents.site" className="text-primary hover:underline">
+                      suppliers@planoevents.site
+                    </a>{" "}
+                    or use the form at{" "}
+                    <Link
+                      href="/data-deletion"
+                      className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                    >
+                      planoevents.site/data-deletion
+                      <ArrowUpRight size={13} />
+                    </Link>
+                    . After we verify the request is yours, we stop contacting you, delete your shared profile (including any verification documents) within 30 days, and ask the coordinators who hold private records about you to remove your personal details, as described in Section 5 and in the{" "}
+                    <Link href="/supplier-data-notice" className="text-primary hover:underline">
+                      Supplier Data Notice
+                    </Link>
+                    . We cannot recall messages or documents a coordinator has already sent to their own clients or suppliers, and a coordinator who has actually worked with you may keep their own private business record.
+                  </p>
+                  <p>
+                    <strong className="text-ink">Waitlist.</strong> Use the unsubscribe link in any email from us, or the form at{" "}
+                    <Link
+                      href="/data-deletion"
+                      className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                    >
+                      planoevents.site/data-deletion
+                      <ArrowUpRight size={13} />
+                    </Link>
                     .
                   </p>
                 </div>
@@ -522,7 +650,7 @@ export default function PrivacyPage() {
                   13. Security
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-ink-secondary leading-relaxed">
-                  We use reasonable technical and organizational measures to protect personal information, including access controls and encryption in transit. No system is perfectly secure; we will notify affected data subjects and the NPC of a personal data breach as required by law.
+                  We use reasonable technical and organizational measures to protect personal information, including access controls, encryption in transit, and encryption of the stored access credentials for connected Google Calendar accounts. No system is perfectly secure; we will notify affected data subjects and the NPC of a personal data breach as required by law.
                 </p>
               </section>
 
@@ -555,12 +683,22 @@ export default function PrivacyPage() {
                   16. Contact
                 </h2>
                 <div className="p-6 rounded-2xl bg-surface border border-border space-y-2 font-sans text-sm text-ink-secondary">
-                  <p className="font-semibold text-ink text-base">PlanO Events</p>
-                  <p>Lipa City, Philippines</p>
+                  <p className="font-semibold text-ink text-base">PLANOEVENTS INFORMATION TECHNOLOGY SOLUTIONS (PlanO Events)</p>
+                  <p>Lipa City, Batangas, Philippines</p>
                   <p>
-                    Privacy / DPO:{" "}
+                    Data Protection Officer:{" "}
                     <a href="mailto:dpo@planoevents.site" className="text-primary hover:underline">
                       dpo@planoevents.site
+                    </a>{" "}
+                    · Privacy requests:{" "}
+                    <a href="mailto:privacy@planoevents.site" className="text-primary hover:underline">
+                      privacy@planoevents.site
+                    </a>
+                  </p>
+                  <p>
+                    Suppliers:{" "}
+                    <a href="mailto:suppliers@planoevents.site" className="text-primary hover:underline">
+                      suppliers@planoevents.site
                     </a>{" "}
                     · General:{" "}
                     <a href="mailto:info@planoevents.site" className="text-primary hover:underline">

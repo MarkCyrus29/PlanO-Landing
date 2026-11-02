@@ -28,7 +28,7 @@ export default function DataDeletionForm() {
     const trimmedEmail = email.trim();
     if (!trimmedEmail) {
       setFormState("error");
-      setErrorMessage("Please provide your account email address.");
+      setErrorMessage("Please provide your email address.");
       return;
     }
 
@@ -96,7 +96,7 @@ export default function DataDeletionForm() {
           Request Received
         </h2>
         <p className="font-sans text-sm text-ink-secondary leading-relaxed mb-6">
-          We have registered your deletion request for <strong className="text-ink font-semibold">{email}</strong> and dispatched a notification to our compliance team.
+          We have received your deletion request for <strong className="text-ink font-semibold">{email}</strong>.
         </p>
 
         <div className="bg-amber-light/40 border border-secondary/30 rounded-xl p-4 mb-6">
@@ -105,8 +105,8 @@ export default function DataDeletionForm() {
             <div className="font-sans text-xs sm:text-sm text-ink space-y-1">
               <p className="font-semibold text-ink">Action Required to Complete Deletion:</p>
               <p className="text-ink-secondary">
-                To prevent fraudulent deletion, we have sent a confirmation email to <strong>{email}</strong>. 
-                Please reply to that message to verify your identity. We will not wipe your data until you reply to confirm ownership.
+                We email <strong>{email}</strong> and ask you to reply to confirm the request is yours. We delete nothing until you reply.
+                For your privacy, we show the same message whether or not we have a record for that email address.
               </p>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function DataDeletionForm() {
             htmlFor="account-email"
             className="block font-sans text-sm font-medium text-ink mb-1.5"
           >
-            Account Email Address <span className="text-primary font-normal">(Required)</span>
+            Your Email Address <span className="text-primary font-normal">(Required)</span>
           </label>
           <input
             id="account-email"
@@ -153,7 +153,7 @@ export default function DataDeletionForm() {
             className="w-full px-4 py-3 rounded-xl bg-background border border-border text-ink placeholder:text-ink-tertiary font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50"
           />
           <p className="font-sans text-xs text-ink-tertiary mt-1.5">
-            The email address associated with your PlanO account or waitlist entry.
+            The email address linked to your PlanO account, waitlist entry, or business.
           </p>
         </div>
 
@@ -168,7 +168,7 @@ export default function DataDeletionForm() {
             id="additional-notes"
             name="notes"
             rows={4}
-            placeholder="e.g., Please disconnect connected Facebook/Instagram page, delete pending registration, etc."
+            placeholder="Tell us who you are: a coordinator or supplier with a PlanO account, a supplier without an account (include your business name), a client or guest of a coordinator, or someone who only joined the waitlist."
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             disabled={isSubmitting}
@@ -219,7 +219,7 @@ export default function DataDeletionForm() {
 
         <div className="pt-2 border-t border-border/60">
           <p className="font-sans text-xs text-ink-secondary leading-relaxed italic">
-            *Security Notice: To ensure you are the actual owner of this account, we will send a confirmation link to the email address provided above. We will not wipe your data until you reply to confirm ownership. Once confirmed, your data will be permanently deleted within 30 days.
+            *What happens next: we email the address above and ask you to reply to confirm the request is yours. We delete nothing until you reply. For your privacy, we show the same message whether or not we have a record for that email address.
           </p>
         </div>
       </div>

@@ -202,7 +202,7 @@ export async function POST(request: NextRequest) {
               </h1>
 
               <p style="font-size: 14px; line-height: 1.6; color: #6b6a65; margin: 0 0 18px 0;">
-                We received a request to delete the PlanO account and associated data for <strong>${email}</strong>, including any personal information and data connected to Meta accounts (Facebook / Instagram).
+                We received a request to delete the information PlanO holds for <strong>${email}</strong>. This may include a PlanO account, a waitlist entry, a supplier profile, or data received from a connected Meta (Facebook / Instagram) account.
               </p>
 
               <div style="background: #e1f5ee; border-left: 4px solid #1d9e75; padding: 16px; border-radius: 6px; margin-bottom: 20px;">
@@ -210,13 +210,13 @@ export async function POST(request: NextRequest) {
                   🔒 Security Notice: Confirmation Required
                 </p>
                 <p style="font-size: 13px; line-height: 1.5; color: #1a1915; margin: 0;">
-                  To ensure you are the actual owner of this account and to protect your account against unauthorized deletion, <strong>please simply reply to this email stating &ldquo;I confirm data deletion for my PlanO account&rdquo;</strong>.
+                  To confirm the request is yours and protect you against unauthorized deletion, <strong>please reply to this email stating &ldquo;I confirm my PlanO data deletion request&rdquo;</strong>.
                 </p>
               </div>
 
               <p style="font-size: 13px; line-height: 1.6; color: #6b6a65; margin: 0 0 16px 0;">
-                • We will not wipe your data until you reply to confirm ownership.<br>
-                • Once confirmed, your account and customer data will be permanently deleted within 30 days.<br>
+                • We delete nothing until you reply to confirm.<br>
+                • Once confirmed, your access ends, connected integrations are disconnected, and future subscription charges stop. Your data is deleted within 30 days, and we email you when it is done.<br>
                 • <em>Note:</em> Any previously issued official BIR tax invoices must be retained for the statutory period required by Philippine tax law (§10 of our Privacy Policy).
               </p>
 
@@ -226,7 +226,7 @@ export async function POST(request: NextRequest) {
             </div>
             
             <p style="text-align: center; font-size: 11px; color: #9b9a94; margin-top: 20px;">
-              © ${new Date().getFullYear()} PlanO Events · Lipa City, Philippines
+              © ${new Date().getFullYear()} PlanO Events · Lipa City, Batangas, Philippines
             </p>
           </div>
         `,
