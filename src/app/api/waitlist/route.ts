@@ -225,11 +225,14 @@ export async function POST(request: NextRequest) {
 
               <!-- Footer -->
               <div style="text-align: center; margin-top: 32px;">
-                <p style="color: #9b9a94; font-size: 12px; margin: 0 0 4px 0;">
-                  You received this email because you signed up at planoevents.site
+                <p style="color: #9b9a94; font-size: 12px; margin: 0 0 6px 0;">
+                  You received this email because you signed up at planoevents.site.
+                </p>
+                <p style="color: #9b9a94; font-size: 12px; margin: 0 0 6px 0;">
+                  <a href="https://planoevents.site/data-deletion" style="color: #1d9e75; text-decoration: underline;">Unsubscribe</a> or manage your data preferences anytime.
                 </p>
                 <p style="color: #9b9a94; font-size: 12px; margin: 0;">
-                  © ${new Date().getFullYear()} PlanO. All rights reserved.
+                  © ${new Date().getFullYear()} PlanO Events · Lipa City, Batangas, Philippines
                 </p>
               </div>
 

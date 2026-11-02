@@ -1,20 +1,34 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { Loader2, CheckCircle2, AlertCircle, ShieldAlert, ArrowRight, RefreshCw } from "lucide-react";
+import { Loader2, CheckCircle2, AlertCircle, RefreshCw, ArrowRight } from "lucide-react";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
-type FormState = "idle" | "submitting" | "success" | "error";
+const ROLE_OPTIONS = [
+  "A coordinator or supplier with a PlanO account",
+  "A supplier without an account",
+  "A client or guest of a coordinator",
+  "Joined the waitlist only",
+] as const;
 
 export default function DataDeletionForm() {
   const [email, setEmail] = useState("");
-  const [notes, setNotes] = useState("");
-  const [formState, setFormState] = useState<FormState>("idle");
+  const [role, setRole] = useState<string>(ROLE_OPTIONS[0]);
+  const [businessName, setBusinessName] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [devConfirmUrl, setDevConfirmUrl] = useState<string | null>(null);
+
   const turnstileRef = useRef<TurnstileInstance>(null);
+
+  const isSupplierRole =
+    role === "A supplier without an account" ||
+    role === "A coordinator or supplier with a PlanO account";
 
   const resetTurnstile = useCallback(() => {
     if (turnstileRef.current) {
@@ -25,36 +39,41 @@ export default function DataDeletionForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
+
     const trimmedEmail = email.trim();
     if (!trimmedEmail) {
-      setFormState("error");
-      setErrorMessage("Please provide your account email address.");
+      setErrorMessage("Email address is required.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmedEmail)) {
-      setFormState("error");
       setErrorMessage("Please enter a valid email address.");
       return;
     }
 
+    if (isSupplierRole && role === "A supplier without an account" && !businessName.trim()) {
+      setErrorMessage("Business name is required for suppliers.");
+      return;
+    }
+
     if (TURNSTILE_SITE_KEY && !turnstileToken) {
-      setFormState("error");
       setErrorMessage("Please complete the bot verification.");
       return;
     }
 
-    setFormState("submitting");
-    setErrorMessage("");
+    setIsSubmitting(true);
 
     try {
-      const res = await fetch("/api/data-deletion", {
+      const res = await fetch("/api/deletion-requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: trimmedEmail,
-          notes: notes.trim(),
+          role,
+          businessName: isSupplierRole ? businessName.trim() : undefined,
+          message: message.trim() || undefined,
           turnstileToken,
         }),
       });
@@ -62,60 +81,65 @@ export default function DataDeletionForm() {
       const data = await res.json();
 
       if (!res.ok) {
-        setFormState("error");
         setErrorMessage(data.error || "Failed to submit request. Please try again.");
         resetTurnstile();
+        setIsSubmitting(false);
         return;
       }
 
-      setFormState("success");
+      setIsSubmitted(true);
+      if (data.devConfirmUrl) {
+        setDevConfirmUrl(data.devConfirmUrl);
+      }
     } catch {
-      setFormState("error");
       setErrorMessage("Network error. Please check your connection and try again.");
       resetTurnstile();
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleReset = () => {
     setEmail("");
-    setNotes("");
-    setFormState("idle");
+    setRole(ROLE_OPTIONS[0]);
+    setBusinessName("");
+    setMessage("");
+    setIsSubmitted(false);
     setErrorMessage("");
+    setDevConfirmUrl(null);
     resetTurnstile();
   };
 
-  const isSubmitting = formState === "submitting";
-
-  if (formState === "success") {
+  if (isSubmitted) {
     return (
-      <div className="bg-surface rounded-2xl border border-border p-8 shadow-xs">
-        <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-5">
+      <div className="bg-surface rounded-2xl border border-border p-6 sm:p-8 shadow-xs">
+        <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-4">
           <CheckCircle2 size={24} />
         </div>
-        <h2 className="font-display text-2xl font-light text-ink mb-2">
-          Request Received
-        </h2>
-        <p className="font-sans text-sm text-ink-secondary leading-relaxed mb-6">
-          We have registered your deletion request for <strong className="text-ink font-semibold">{email}</strong> and dispatched a notification to our compliance team.
+        <h3 className="font-display text-xl sm:text-2xl font-normal text-ink mb-3">
+          Confirmation link sent
+        </h3>
+        {/* Exact message mandated by Step 2 */}
+        <p className="font-sans text-base text-ink leading-relaxed mb-6 font-medium">
+          If we have a record for this email, we&rsquo;ve sent a confirmation link. It works for 7 days.
+        </p>
+        <p className="font-sans text-xs text-ink-secondary leading-relaxed mb-6">
+          The email contains a link that opens a page explaining what will be deleted and prompts you to confirm. For your security and privacy, data is only deleted after you press the button on that page.
         </p>
 
-        <div className="bg-amber-light/40 border border-secondary/30 rounded-xl p-4 mb-6">
-          <div className="flex items-start gap-3">
-            <ShieldAlert size={18} className="text-secondary mt-0.5 shrink-0" />
-            <div className="font-sans text-xs sm:text-sm text-ink space-y-1">
-              <p className="font-semibold text-ink">Action Required to Complete Deletion:</p>
-              <p className="text-ink-secondary">
-                To prevent fraudulent deletion, we have sent a confirmation email to <strong>{email}</strong>. 
-                Please reply to that message to verify your identity. We will not wipe your data until you reply to confirm ownership.
-              </p>
-            </div>
+        {devConfirmUrl && (
+          <div className="mb-6 p-4 rounded-xl bg-primary-light/50 border border-primary/20 text-xs font-mono break-all">
+            <span className="text-primary font-bold block mb-1">Local / Dev Quick Link:</span>
+            <a href={devConfirmUrl} className="text-primary underline">
+              {devConfirmUrl}
+            </a>
           </div>
-        </div>
+        )}
 
         <button
           type="button"
           onClick={handleReset}
-          className="inline-flex items-center gap-2 font-sans text-xs font-medium text-primary hover:text-primary-dark transition-colors"
+          className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-primary hover:text-primary-dark transition-colors"
         >
           <RefreshCw size={13} />
           Submit another request
@@ -126,53 +150,85 @@ export default function DataDeletionForm() {
 
   return (
     <form onSubmit={handleSubmit} className="bg-surface rounded-2xl border border-border p-6 sm:p-8 shadow-xs">
-      <div className="space-y-6">
+      <div className="space-y-5">
+        {/* Email Field */}
         <div>
-          <label
-            htmlFor="account-email"
-            className="block font-sans text-sm font-medium text-ink mb-1.5"
-          >
-            Account Email Address <span className="text-primary font-normal">(Required)</span>
+          <label htmlFor="del-email" className="block font-sans text-sm font-semibold text-ink mb-1.5">
+            Your email address <span className="text-primary font-normal">(Required)</span>
           </label>
           <input
-            id="account-email"
-            name="email"
+            id="del-email"
             type="email"
             required
             autoComplete="email"
-            placeholder="coordinator@example.com"
+            placeholder="you@email.com"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
-              if (formState === "error") {
-                setFormState("idle");
-                setErrorMessage("");
-              }
+              if (errorMessage) setErrorMessage("");
             }}
             disabled={isSubmitting}
-            className="w-full px-4 py-3 rounded-xl bg-background border border-border text-ink placeholder:text-ink-tertiary font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50"
+            className="w-full px-4 py-2.5 rounded-xl bg-background border border-border text-ink placeholder:text-ink-tertiary font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50"
           />
-          <p className="font-sans text-xs text-ink-tertiary mt-1.5">
-            The email address associated with your PlanO account or waitlist entry.
-          </p>
         </div>
 
+        {/* Role Dropdown */}
         <div>
-          <label
-            htmlFor="additional-notes"
-            className="block font-sans text-sm font-medium text-ink mb-1.5"
+          <label htmlFor="del-role" className="block font-sans text-sm font-semibold text-ink mb-1.5">
+            I am… <span className="text-primary font-normal">(Required)</span>
+          </label>
+          <select
+            id="del-role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            disabled={isSubmitting}
+            className="w-full px-4 py-2.5 rounded-xl bg-background border border-border text-ink font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50"
           >
+            {ROLE_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Business Name Field (Conditional for suppliers) */}
+        {isSupplierRole && (
+          <div className="transition-all duration-200">
+            <label htmlFor="del-business-name" className="block font-sans text-sm font-semibold text-ink mb-1.5">
+              Business name{" "}
+              {role === "A supplier without an account" ? (
+                <span className="text-primary font-normal">(Required for suppliers)</span>
+              ) : (
+                <span className="text-ink-tertiary font-normal">(Required only for suppliers)</span>
+              )}
+            </label>
+            <input
+              id="del-business-name"
+              type="text"
+              required={role === "A supplier without an account"}
+              placeholder="Your registered business or brand name"
+              value={businessName}
+              onChange={(e) => setBusinessName(e.target.value)}
+              disabled={isSubmitting}
+              className="w-full px-4 py-2.5 rounded-xl bg-background border border-border text-ink placeholder:text-ink-tertiary font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50"
+            />
+          </div>
+        )}
+
+        {/* Optional message */}
+        <div>
+          <label htmlFor="del-message" className="block font-sans text-sm font-semibold text-ink mb-1.5">
             Anything else we should know? <span className="text-ink-tertiary font-normal">(Optional)</span>
           </label>
           <textarea
-            id="additional-notes"
-            name="notes"
-            rows={4}
-            placeholder="e.g., Please disconnect connected Facebook/Instagram page, delete pending registration, etc."
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
+            id="del-message"
+            rows={3}
+            placeholder="Additional context or specific details about your request"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             disabled={isSubmitting}
-            className="w-full px-4 py-3 rounded-xl bg-background border border-border text-ink placeholder:text-ink-tertiary font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50 resize-y"
+            className="w-full px-4 py-2.5 rounded-xl bg-background border border-border text-ink placeholder:text-ink-tertiary font-sans text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all disabled:opacity-50 resize-y"
           />
         </div>
 
@@ -183,18 +239,15 @@ export default function DataDeletionForm() {
               onSuccess={(token) => setTurnstileToken(token)}
               onError={() => setTurnstileToken(null)}
               onExpire={() => setTurnstileToken(null)}
-              options={{
-                theme: "light",
-                size: "flexible",
-              }}
+              options={{ theme: "light", size: "flexible" }}
               ref={turnstileRef}
             />
           </div>
         )}
 
-        {formState === "error" && errorMessage && (
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-light/60 border border-secondary/30 text-ink font-sans text-sm">
-            <AlertCircle size={16} className="text-secondary shrink-0" />
+        {errorMessage && (
+          <div className="flex items-center gap-2 p-3 rounded-xl bg-amber-light/60 border border-secondary/30 text-ink font-sans text-xs sm:text-sm">
+            <AlertCircle size={15} className="text-secondary shrink-0" />
             <span>{errorMessage}</span>
           </div>
         )}
@@ -202,26 +255,24 @@ export default function DataDeletionForm() {
         <button
           type="submit"
           disabled={isSubmitting || !email.trim()}
-          className="w-full bg-primary text-surface font-sans text-sm font-semibold px-6 py-3.5 rounded-xl hover:bg-primary-dark active:scale-[0.99] transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-xs"
+          className="w-full sm:w-auto bg-primary text-surface font-sans text-sm font-semibold px-6 py-3 rounded-xl hover:bg-primary-dark active:scale-[0.99] transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-xs"
         >
           {isSubmitting ? (
             <>
-              <Loader2 size={16} className="animate-spin" />
-              Processing Request…
+              <Loader2 size={15} className="animate-spin" />
+              Sending request…
             </>
           ) : (
             <>
-              Request Data Deletion
-              <ArrowRight size={15} />
+              Send request
+              <ArrowRight size={14} />
             </>
           )}
         </button>
 
-        <div className="pt-2 border-t border-border/60">
-          <p className="font-sans text-xs text-ink-secondary leading-relaxed italic">
-            *Security Notice: To ensure you are the actual owner of this account, we will send a confirmation link to the email address provided above. We will not wipe your data until you reply to confirm ownership. Once confirmed, your data will be permanently deleted within 30 days.
-          </p>
-        </div>
+        <p className="font-sans text-xs text-ink-tertiary leading-relaxed pt-3 border-t border-border/60 italic">
+          What happens next: we email the address above and ask you to reply to confirm the request is yours. We delete nothing until you reply. For your privacy, we show the same message whether or not we have a record for that email address.
+        </p>
       </div>
     </form>
   );

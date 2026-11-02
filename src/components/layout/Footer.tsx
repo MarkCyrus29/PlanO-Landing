@@ -9,8 +9,8 @@ const sectionIds = ["/#features", "/#how-it-works", "/#for-coordinators", "/#faq
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
-  { label: "Data Deletion", href: "/data-deletion" },
   { label: "Supplier Data Notice", href: "/supplier-data-notice" },
+  { label: "Data Deletion", href: "/data-deletion" },
 ];
 
 export default function Footer() {
@@ -49,32 +49,22 @@ export default function Footer() {
               className="flex items-center gap-1.5 font-sans text-xs text-ink-tertiary hover:text-surface transition-colors duration-150"
             >
               <Mail size={14} />
-              <span className="hidden sm:inline">info@planoevents.site</span>
+              <span>info@planoevents.site</span>
             </a>
             <span className="flex items-center gap-1.5 font-sans text-xs text-ink-tertiary">
               <MapPin size={14} />
               <span className="hidden sm:inline">Built in Batangas 🇵🇭</span>
             </span>
-            {/* Instagram — uncomment when account goes to soft-reveal
-            <a
-              href="https://instagram.com/planoevents"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 font-sans text-xs text-ink-tertiary hover:text-surface transition-colors duration-150"
-            >
-              <Instagram size={14} />
-            </a>
-            */}
           </div>
         </div>
 
         {/* Bottom Row: Copyright, Legal & Scroll */}
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-4 pt-6 border-t border-border/10">
           <span className="font-mono text-xs text-ink-tertiary text-center md:text-left">
-            © 2026 PlanO · Pre-launch · Philippines
+            © 2026 PlanO · Lipa City, Batangas, Philippines
           </span>
           
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
             {legalLinks.map((link) => (
               <Link 
                 key={link.href} 
